@@ -1,4 +1,4 @@
-# Pixer's Pong!
+# pixer's PONG
 
 A pong game made with Godot for gamedev practice.
 
