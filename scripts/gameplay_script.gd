@@ -652,7 +652,7 @@ func foulball_reserve_animation(playthrough: float):
 
 var foulball_reserve_anim_to_conclude: bool = false
 func foulball_reserve_anim_conclusion():
-	pass
+	reset_arrow_pointers_and_line()
 
 func padchar_foulball_guilt_expression():
 	if not (Time.get_ticks_msec() < (foulball_reserve_start_time + FOULBALL_RESERVE_ANIM_DURATION)):
