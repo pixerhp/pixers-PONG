@@ -1,14 +1,13 @@
 [gd_scene format=3 uid="uid://hlipoo3a81a4"]
 
 [ext_resource type="Script" uid="uid://cvl8uia5vjvs8" path="res://scripts/titlescreen.gd" id="1_lfq86"]
+[ext_resource type="PackedScene" uid="uid://bkyjojtf8ovst" path="res://scenes/prefabs/settings_menu.tscn" id="2_q7xs3"]
 
 [node name="TitlescreenTopscene" type="Control" unique_id=1092844895]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -460.0
-offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lfq86")
@@ -80,7 +79,6 @@ text = "play"
 
 [node name="SettingsButton" type="Button" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=1725853170]
 layout_mode = 2
-disabled = true
 text = "settings
 "
 
@@ -94,6 +92,11 @@ text = "extras
 [node name="QuitButton" type="Button" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=663610410]
 layout_mode = 2
 text = "quit"
+
+[node name="SettingsMenu" parent="." unique_id=780968585 instance=ExtResource("2_q7xs3")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
 
 [connection signal="pressed" from="CenteringParent/ClippingParent/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="CenteringParent/ClippingParent/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
