@@ -1,3 +1,6 @@
 Improvement ideas:
 	Add pushing-paddle frame and second winning frame to padchars spritesheet.
 	Screen shake / wall knockback when the ball hits a wall with a lot of vertical speed?
+
+Development started: 2026/2/6
+Initial release: 
