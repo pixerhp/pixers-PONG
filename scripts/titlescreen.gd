@@ -23,3 +23,42 @@ func _on_extras_button_pressed():
 
 func _on_quit_button_pressed():
 	get_tree().quit()
+
+
+func _on_ts_area_entered(which: String):
+	var node_ref: Control
+	match which:
+		"exit":
+			node_ref = %TSExitTexture
+		"play":
+			node_ref = %TSPlayTexture
+		"settings":
+			node_ref = %TSSettingsTexture
+		"bonus":
+			node_ref = %TSBonusTexture
+	node_ref.modulate = Color.WHITE
+
+func _on_ts_area_exited(which: String):
+	var node_ref: Control
+	match which:
+		"exit":
+			node_ref = %TSExitTexture
+		"play":
+			node_ref = %TSPlayTexture
+		"settings":
+			node_ref = %TSSettingsTexture
+		"bonus":
+			node_ref = %TSBonusTexture
+	node_ref.modulate = Color(0.8, 0.8, 0.8, 1.0)
+
+func _on_ts_area_input_event(viewport, event, shape_idx, which: String):
+	if (event is InputEventMouseButton) and (event.button_index == MouseButton.MOUSE_BUTTON_LEFT) and event.pressed:
+		match which:
+			"exit":
+				get_tree().quit()
+			"play":
+				get_tree().change_scene_to_file("res://scenes/topscenes/gameplay_topscene.tscn")
+			"settings":
+				%SettingsMenu.visible = true
+			"bonus":
+				pass

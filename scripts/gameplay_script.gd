@@ -1233,7 +1233,7 @@ func _on_restart_button_pressed():
 func _on_settings_button_pressed():
 	pass # Replace with function body.
 
-func _on_quit_to_menu_button_pressed():
+func _on_quit_to_title_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/topscenes/titlescreen_topscene.tscn")
 
 func _on_quit_to_desk_button_pressed():

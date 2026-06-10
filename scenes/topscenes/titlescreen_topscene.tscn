@@ -15,6 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_lfq86")
 
 [node name="CenteringParent" type="Control" parent="." unique_id=75234928]
@@ -31,6 +32,7 @@ offset_right = 400.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="ClippingParent" type="Control" parent="CenteringParent" unique_id=501795488]
 unique_name_in_owner = true
@@ -41,6 +43,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TSBackgroundTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=1092695215]
 unique_name_in_owner = true
@@ -52,8 +55,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7nafq")
 
+[node name="TSPixerArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1451439561]
+unique_name_in_owner = true
+
 [node name="TSExitTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=1406988074]
 unique_name_in_owner = true
+modulate = Color(0.8, 0.8, 0.8, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,18 +69,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_q6gtv")
 
-[node name="TSBonusTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=1182933771]
+[node name="TSExitArea" type="Area2D" parent="CenteringParent/ClippingParent/TSExitTexture" unique_id=2125523874]
 unique_name_in_owner = true
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("4_bjlud")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSExitTexture/TSExitArea" unique_id=703414033]
+polygon = PackedVector2Array(0, 0, 205, 0, 61, 151, 0, 212)
 
 [node name="TSPlayTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=636151371]
 unique_name_in_owner = true
+modulate = Color(0.8, 0.8, 0.8, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -82,8 +86,15 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_6080r")
 
+[node name="TSPlayArea" type="Area2D" parent="CenteringParent/ClippingParent/TSPlayTexture" unique_id=1351678573]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSPlayTexture/TSPlayArea" unique_id=456306827]
+polygon = PackedVector2Array(485, 0, 433, 57, 414, 148, 427, 239, 462, 289, 502, 314, 547, 321, 641, 308, 761, 272, 789, 236, 796, 189, 791, 156, 773, 107, 719, 38, 624, -1)
+
 [node name="TSSettingsTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=393802115]
 unique_name_in_owner = true
+modulate = Color(0.8, 0.8, 0.8, 1)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,59 +103,44 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_hab8c")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenteringParent/ClippingParent" unique_id=2048338329]
-visible = false
+[node name="TSSettingsArea" type="Area2D" parent="CenteringParent/ClippingParent/TSSettingsTexture" unique_id=456656288]
+unique_name_in_owner = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSSettingsTexture/TSSettingsArea" unique_id=379063340]
+position = Vector2(717, 630)
+polygon = PackedVector2Array(-125, -30, -129, -60, -132, -106, -132, -163, -125, -217, -93, -268, -47, -286, -5, -274, 18, -248, 33, -209, 47, -159, 55, -78, 59, -30)
+
+[node name="TSBonusTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=1182933771]
+unique_name_in_owner = true
+modulate = Color(0.8, 0.8, 0.8, 1)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("4_bjlud")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=1372114320]
-custom_minimum_size = Vector2(256, 0)
-layout_mode = 2
-text = "Welcome to the titlescreen!
-(This is a placeholder design.)"
-fit_content = true
-horizontal_alignment = 1
+[node name="TSBonusArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBonusTexture" unique_id=931552381]
+unique_name_in_owner = true
 
-[node name="Spacer" type="Control" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=1450156029]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="PlayButton" type="Button" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=1844914765]
-layout_mode = 2
-text = "play"
-
-[node name="SettingsButton" type="Button" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=1725853170]
-layout_mode = 2
-text = "settings
-"
-
-[node name="ExtrasButton" type="Button" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=1472631322]
-layout_mode = 2
-disabled = true
-text = "extras
-
-"
-
-[node name="QuitButton" type="Button" parent="CenteringParent/ClippingParent/VBoxContainer" unique_id=663610410]
-layout_mode = 2
-text = "quit"
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSBonusTexture/TSBonusArea" unique_id=104149843]
+polygon = PackedVector2Array(0, 256, 24, 246, 63, 243, 107, 260, 128, 303, 122, 340, 108, 361, 74, 374, 29, 374, 2, 366)
 
 [node name="SettingsMenu" parent="." unique_id=780968585 instance=ExtResource("2_q7xs3")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="CenteringParent/ClippingParent/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="CenteringParent/ClippingParent/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="CenteringParent/ClippingParent/VBoxContainer/ExtrasButton" to="." method="_on_extras_button_pressed"]
-[connection signal="pressed" from="CenteringParent/ClippingParent/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="input_event" from="CenteringParent/ClippingParent/TSExitTexture/TSExitArea" to="." method="_on_ts_area_input_event" binds= ["exit"]]
+[connection signal="mouse_entered" from="CenteringParent/ClippingParent/TSExitTexture/TSExitArea" to="." method="_on_ts_area_entered" binds= ["exit"]]
+[connection signal="mouse_exited" from="CenteringParent/ClippingParent/TSExitTexture/TSExitArea" to="." method="_on_ts_area_exited" binds= ["exit"]]
+[connection signal="input_event" from="CenteringParent/ClippingParent/TSPlayTexture/TSPlayArea" to="." method="_on_ts_area_input_event" binds= ["play"]]
+[connection signal="mouse_entered" from="CenteringParent/ClippingParent/TSPlayTexture/TSPlayArea" to="." method="_on_ts_area_entered" binds= ["play"]]
+[connection signal="mouse_exited" from="CenteringParent/ClippingParent/TSPlayTexture/TSPlayArea" to="." method="_on_ts_area_exited" binds= ["play"]]
+[connection signal="input_event" from="CenteringParent/ClippingParent/TSSettingsTexture/TSSettingsArea" to="." method="_on_ts_area_input_event" binds= ["settings"]]
+[connection signal="mouse_entered" from="CenteringParent/ClippingParent/TSSettingsTexture/TSSettingsArea" to="." method="_on_ts_area_entered" binds= ["settings"]]
+[connection signal="mouse_exited" from="CenteringParent/ClippingParent/TSSettingsTexture/TSSettingsArea" to="." method="_on_ts_area_exited" binds= ["settings"]]
+[connection signal="input_event" from="CenteringParent/ClippingParent/TSBonusTexture/TSBonusArea" to="." method="_on_ts_area_input_event" binds= ["bonus"]]
+[connection signal="mouse_entered" from="CenteringParent/ClippingParent/TSBonusTexture/TSBonusArea" to="." method="_on_ts_area_entered" binds= ["bonus"]]
+[connection signal="mouse_exited" from="CenteringParent/ClippingParent/TSBonusTexture/TSBonusArea" to="." method="_on_ts_area_exited" binds= ["bonus"]]
