@@ -84,7 +84,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ks65t")
 }],
-"loop": false,
+"loop": 0,
 "name": &"count_1",
 "speed": 2.5
 }, {
@@ -92,7 +92,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vgafc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"count_2",
 "speed": 5.0
 }, {
@@ -100,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_81lo5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"count_3",
 "speed": 5.0
 }, {
@@ -108,7 +108,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ed28v")
 }],
-"loop": true,
+"loop": 1,
 "name": &"foulball_gesture",
 "speed": 5.0
 }, {
@@ -119,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d18oc")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -127,7 +127,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_df8f4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"serve_gesture",
 "speed": 5.0
 }, {
@@ -135,7 +135,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iube2")
 }],
-"loop": true,
+"loop": 1,
 "name": &"winner_gesture",
 "speed": 5.0
 }]

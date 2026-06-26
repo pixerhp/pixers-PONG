@@ -8,7 +8,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackRect" type="ColorRect" parent="." unique_id=1269742100]
+[node name="BackTranslucentRect" type="ColorRect" parent="." unique_id=1269742100]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,3 +16,69 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.25, 0.25, 0.25, 0.87058824)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=505937727]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PadTop" type="Control" parent="VBoxContainer" unique_id=1647355954]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1186197477]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PadLeft" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1910226886]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=1034377635]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=286660945]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1414796390]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer" unique_id=1613667009]
+layout_mode = 2
+
+[node name="CloseSettingsButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=226267086]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " < [Exit Settings] "
+
+[node name="GeneralTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1331574185]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " [General] "
+
+[node name="KeybindsTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=986293899]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " [Keybinds] "
+
+[node name="AdvancedTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=315473218]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = " [Advanced] "
+
+[node name="PadRight" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=2062529450]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="PadBottom" type="Control" parent="VBoxContainer" unique_id=1756283018]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+size_flags_horizontal = 4
