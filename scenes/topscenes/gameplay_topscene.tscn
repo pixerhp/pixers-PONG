@@ -13,6 +13,7 @@
 [ext_resource type="StyleBox" uid="uid://t2qdtndfu2sc" path="res://assets/styles/button_hover.tres" id="9_d18oc"]
 [ext_resource type="Texture2D" uid="uid://dmaca2nx1aq03" path="res://assets/art/ellipsis_dot.png" id="9_vgafc"]
 [ext_resource type="StyleBox" uid="uid://d4gh36qf2ytct" path="res://assets/styles/outer_vignette_panel.tres" id="10_d18oc"]
+[ext_resource type="PackedScene" uid="uid://bkyjojtf8ovst" path="res://scenes/prefabs/settings_menu.tscn" id="14_81lo5"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_emnkm"]
 size = Vector2(350, 31.5)
@@ -427,6 +428,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 0, 0.1254902)
 
+[node name="DebugRect1" type="ColorRect" parent="." unique_id=1422858362]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.1254902)
+
 [node name="PauseMenuContainer" type="Control" parent="." unique_id=201271272]
 unique_name_in_owner = true
 visible = false
@@ -493,7 +504,6 @@ theme_override_font_sizes/font_size = 24
 theme_override_styles/normal = ExtResource("7_emnkm")
 theme_override_styles/pressed = ExtResource("8_rfs2g")
 theme_override_styles/hover = ExtResource("9_d18oc")
-disabled = true
 text = "SETTINGS"
 
 [node name="QuitToTitleButton" type="Button" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=1664834077]
@@ -519,15 +529,10 @@ text = "QUIT TO DESKTOP"
 [node name="Spacer2" type="Control" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=631958866]
 layout_mode = 2
 
-[node name="DebugRect1" type="ColorRect" parent="." unique_id=1422858362]
+[node name="SettingsMenu" parent="." unique_id=780968585 instance=ExtResource("14_81lo5")]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0, 0, 0.1254902)
 
 [connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]

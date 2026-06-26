@@ -19,7 +19,11 @@ func _ready():
 	firstserve_start_time = Time.get_ticks_msec()
 
 func _process(delta: float):
-	checkdo_toggle_pause()
+	if %SettingsMenu.visible == true:
+		if Input.is_action_just_pressed("pause_escape"):
+			%SettingsMenu.visible = false
+	else:
+		checkdo_toggle_pause()
 	if is_game_paused:
 		return
 	
@@ -1231,7 +1235,7 @@ func _on_restart_button_pressed():
 	get_tree().reload_current_scene()
 
 func _on_settings_button_pressed():
-	pass # Replace with function body.
+	%SettingsMenu.visible = true
 
 func _on_quit_to_title_button_pressed():
 	get_tree().change_scene_to_file("res://scenes/topscenes/titlescreen_topscene.tscn")

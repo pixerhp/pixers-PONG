@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://bkyjojtf8ovst"]
 
+[ext_resource type="Script" uid="uid://c0hadask2f7jy" path="res://scripts/settings_menu.gd" id="1_lp8fd"]
+[ext_resource type="StyleBox" uid="uid://bcdvcsg3wfawa" path="res://assets/styles/settings_back.tres" id="2_cttti"]
+[ext_resource type="StyleBox" uid="uid://ci3ysgsrjm1o7" path="res://assets/styles/settings_dark.tres" id="3_la7n0"]
+
 [node name="SettingsMenu" type="Control" unique_id=780968585]
 layout_mode = 3
 anchors_preset = 15
@@ -7,15 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="BackTranslucentRect" type="ColorRect" parent="." unique_id=1269742100]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.25, 0.25, 0.25, 0.87058824)
+script = ExtResource("1_lp8fd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=505937727]
 layout_mode = 1
@@ -42,6 +38,7 @@ size_flags_horizontal = 4
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=1034377635]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_cttti")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=286660945]
 layout_mode = 2
@@ -49,26 +46,31 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1414796390]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_la7n0")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer" unique_id=1613667009]
 layout_mode = 2
 
 [node name="CloseSettingsButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=226267086]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = " < [Exit Settings] "
 
 [node name="GeneralTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1331574185]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = " [General] "
 
 [node name="KeybindsTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=986293899]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = " [Keybinds] "
 
 [node name="AdvancedTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=315473218]
+custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 theme_override_font_sizes/font_size = 20
 text = " [Advanced] "
@@ -82,3 +84,5 @@ size_flags_horizontal = 4
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 size_flags_horizontal = 4
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
