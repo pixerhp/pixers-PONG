@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c0hadask2f7jy" path="res://scripts/settings_menu.gd" id="1_lp8fd"]
 [ext_resource type="StyleBox" uid="uid://bcdvcsg3wfawa" path="res://assets/styles/settings_back.tres" id="2_cttti"]
 [ext_resource type="StyleBox" uid="uid://ci3ysgsrjm1o7" path="res://assets/styles/settings_dark.tres" id="3_la7n0"]
+[ext_resource type="StyleBox" uid="uid://r75uu6a6dxcf" path="res://assets/styles/button_pressed.tres" id="5_tvd1v"]
 
 [node name="SettingsMenu" type="Control" unique_id=780968585]
 layout_mode = 3
@@ -13,7 +14,80 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lp8fd")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=505937727]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1013886188]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 12
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1034377635]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("2_cttti")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer" unique_id=286660945]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=1414796390]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = ExtResource("3_la7n0")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/PanelContainer" unique_id=1613667009]
+layout_mode = 2
+
+[node name="CloseSettingsButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=226267086]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = ExtResource("5_tvd1v")
+text = " < [Exit Settings] "
+
+[node name="GeneralTabButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1331574185]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = ExtResource("5_tvd1v")
+text = " [General] "
+
+[node name="KeybindsTabButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=986293899]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = ExtResource("5_tvd1v")
+text = " [Keybinds] "
+
+[node name="AdvancedTabButton" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=315473218]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = ExtResource("5_tvd1v")
+text = " [Advanced] "
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/VBoxContainer" unique_id=2056313788]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer" unique_id=1577869036]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GeneralSettingsArea" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1389599367]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1529588087]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,68 +95,64 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PadTop" type="Control" parent="VBoxContainer" unique_id=1647355954]
-custom_minimum_size = Vector2(0, 16)
+[node name="MusicVolumeLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/VBoxContainer" unique_id=835334962]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
+text = "Music volume:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1186197477]
+[node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/VBoxContainer" unique_id=528539014]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
+size_flags_horizontal = 0
+max_value = 1.0
+step = 0.025
+value = 0.5
+tick_count = 3
+ticks_position = 3
+
+[node name="SoundsVolumeLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/VBoxContainer" unique_id=135644878]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Sound effects volume:"
+
+[node name="SoundsVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/VBoxContainer" unique_id=443747205]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+max_value = 1.0
+step = 0.025
+value = 0.5
+tick_count = 3
+ticks_position = 3
+
+[node name="KeybindsSettingsArea" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=880474456]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PadLeft" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=1910226886]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 4
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=450311021]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer" unique_id=1034377635]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("2_cttti")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer" unique_id=286660945]
-layout_mode = 2
-
-[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer" unique_id=1414796390]
+[node name="AdvancedSettingsArea" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=80512771]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_styles/panel = ExtResource("3_la7n0")
+size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer" unique_id=1613667009]
-layout_mode = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1943605810]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CloseSettingsButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=226267086]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = " < [Exit Settings] "
-
-[node name="GeneralTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=1331574185]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = " [General] "
-
-[node name="KeybindsTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=986293899]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = " [Keybinds] "
-
-[node name="AdvancedTabButton" type="Button" parent="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer" unique_id=315473218]
-custom_minimum_size = Vector2(0, 40)
-layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = " [Advanced] "
-
-[node name="PadRight" type="Control" parent="VBoxContainer/HBoxContainer" unique_id=2062529450]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="PadBottom" type="Control" parent="VBoxContainer" unique_id=1756283018]
-custom_minimum_size = Vector2(0, 16)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]

@@ -55,7 +55,7 @@ func _on_ts_area_exited(which: String):
 			node_ref = %TSBonusTexture
 	node_ref.modulate = Color(0.8, 0.8, 0.8, 1.0)
 
-func _on_ts_area_input_event(viewport, event, shape_idx, which: String):
+func _on_ts_area_input_event(_viewport, event, _shape_idx, which: String):
 	if (event is InputEventMouseButton) and (event.button_index == MouseButton.MOUSE_BUTTON_LEFT) and event.pressed:
 		match which:
 			"exit":
