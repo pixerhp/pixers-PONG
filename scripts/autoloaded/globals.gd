@@ -1,6 +1,9 @@
 extends Node
 
-var GAME_SIZE: Vector2i = Vector2i(600, 450) #Vector2i(1260, 648)
+var GAME_SIZE: Vector2i = Vector2i(1260, 648) 
+# Vector2i(300, 200)
+# Vector2i(1260, 648) 
+# Vector2i(7680, 5760)
 
 var ball_max_speed: float = 4500
 var ball_min_speed: float = 300
