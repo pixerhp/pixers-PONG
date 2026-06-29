@@ -408,6 +408,119 @@ visible = false
 texture = ExtResource("9_vgafc")
 offset = Vector2(25, -150)
 
+[node name="PauseMenuContainer" type="Control" parent="CenteringParent/ClippingParent" unique_id=201271272]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(0, 648)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenteringParent/ClippingParent/PauseMenuContainer" unique_id=1087708197]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PadTop" type="Control" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer" unique_id=893281755]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer" unique_id=1853000587]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="PadLeft" type="Control" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer" unique_id=954656347]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BackPanel" type="Panel" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer" unique_id=1601381535]
+custom_minimum_size = Vector2(224, 192)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+theme_override_styles/panel = ExtResource("6_hx5ms")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel" unique_id=1161905306]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer1" type="Control" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=1019609415]
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=1925751659]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("7_emnkm")
+theme_override_styles/pressed = ExtResource("8_rfs2g")
+theme_override_styles/hover = ExtResource("9_d18oc")
+text = "RESUME"
+
+[node name="RestartButton" type="Button" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=830160834]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("7_emnkm")
+theme_override_styles/pressed = ExtResource("8_rfs2g")
+theme_override_styles/hover = ExtResource("9_d18oc")
+text = "RESTART"
+
+[node name="SettingsButton" type="Button" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=899708958]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("7_emnkm")
+theme_override_styles/pressed = ExtResource("8_rfs2g")
+theme_override_styles/hover = ExtResource("9_d18oc")
+text = "SETTINGS"
+
+[node name="QuitToTitleButton" type="Button" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=1664834077]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("7_emnkm")
+theme_override_styles/pressed = ExtResource("8_rfs2g")
+theme_override_styles/hover = ExtResource("9_d18oc")
+text = "EXIT TO TITLE"
+
+[node name="QuitToDeskButton" type="Button" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=550602696]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("7_emnkm")
+theme_override_styles/pressed = ExtResource("8_rfs2g")
+theme_override_styles/hover = ExtResource("9_d18oc")
+text = "QUIT GAME"
+
+[node name="Spacer2" type="Control" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer" unique_id=631958866]
+layout_mode = 2
+
+[node name="PadRight" type="Control" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer" unique_id=461078375]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PadBottom" type="Control" parent="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer" unique_id=1907426408]
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="DebugRect3" type="ColorRect" parent="CenteringParent/ClippingParent" unique_id=1751128402]
 visible = false
 layout_mode = 1
@@ -438,104 +551,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 0.1254902)
 
-[node name="PauseMenuContainer" type="Control" parent="." unique_id=201271272]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(1260, 648)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="BackPanel" type="Panel" parent="PauseMenuContainer" unique_id=1601381535]
-custom_minimum_size = Vector2(400, 340)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -170.0
-offset_right = 200.0
-offset_bottom = 170.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = ExtResource("6_hx5ms")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenuContainer/BackPanel" unique_id=1161905306]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Spacer1" type="Control" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=1019609415]
-layout_mode = 2
-
-[node name="ResumeButton" type="Button" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=1925751659]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("7_emnkm")
-theme_override_styles/pressed = ExtResource("8_rfs2g")
-theme_override_styles/hover = ExtResource("9_d18oc")
-text = "RESUME"
-
-[node name="RestartButton" type="Button" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=830160834]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("7_emnkm")
-theme_override_styles/pressed = ExtResource("8_rfs2g")
-theme_override_styles/hover = ExtResource("9_d18oc")
-text = "RESTART"
-
-[node name="SettingsButton" type="Button" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=899708958]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("7_emnkm")
-theme_override_styles/pressed = ExtResource("8_rfs2g")
-theme_override_styles/hover = ExtResource("9_d18oc")
-text = "SETTINGS"
-
-[node name="QuitToTitleButton" type="Button" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=1664834077]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("7_emnkm")
-theme_override_styles/pressed = ExtResource("8_rfs2g")
-theme_override_styles/hover = ExtResource("9_d18oc")
-text = "QUIT TO TITLESCREEN"
-
-[node name="QuitToDeskButton" type="Button" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=550602696]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 24
-theme_override_styles/normal = ExtResource("7_emnkm")
-theme_override_styles/pressed = ExtResource("8_rfs2g")
-theme_override_styles/hover = ExtResource("9_d18oc")
-text = "QUIT TO DESKTOP"
-
-[node name="Spacer2" type="Control" parent="PauseMenuContainer/BackPanel/VBoxContainer" unique_id=631958866]
-layout_mode = 2
-
 [node name="SettingsMenu" parent="." unique_id=780968585 instance=ExtResource("14_81lo5")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
-[connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
-[connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/QuitToTitleButton" to="." method="_on_quit_to_title_button_pressed"]
-[connection signal="pressed" from="PauseMenuContainer/BackPanel/VBoxContainer/QuitToDeskButton" to="." method="_on_quit_to_desk_button_pressed"]
+[connection signal="pressed" from="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer/QuitToTitleButton" to="." method="_on_quit_to_title_button_pressed"]
+[connection signal="pressed" from="CenteringParent/ClippingParent/PauseMenuContainer/VBoxContainer/HBoxContainer/BackPanel/VBoxContainer/QuitToDeskButton" to="." method="_on_quit_to_desk_button_pressed"]
