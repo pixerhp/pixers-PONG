@@ -230,6 +230,7 @@ layout_mode = 2
 text = "PLAYER 1"
 
 [node name="Plr1MoveUpItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1579769183]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -238,6 +239,7 @@ item_0/text = "Move UP:"
 item_0/selectable = false
 
 [node name="Plr1MoveDownItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1539423199]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -246,6 +248,7 @@ item_0/text = "Move DOWN:"
 item_0/selectable = false
 
 [node name="Plr1BumpInItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1355043924]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -254,6 +257,7 @@ item_0/text = "Bump IN:"
 item_0/selectable = false
 
 [node name="Plr1BumpOutItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1392939479]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -262,6 +266,7 @@ item_0/text = "Bump OUT:"
 item_0/selectable = false
 
 [node name="Plr1SlowItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1553478018]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -278,6 +283,7 @@ layout_mode = 2
 text = "PLAYER 2"
 
 [node name="Plr2MoveUpItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1033655289]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -286,6 +292,7 @@ item_0/text = "Move UP:"
 item_0/selectable = false
 
 [node name="Plr2MoveDownItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1897179412]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -294,6 +301,7 @@ item_0/text = "Move DOWN:"
 item_0/selectable = false
 
 [node name="Plr2BumpInItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=432509959]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -302,6 +310,7 @@ item_0/text = "Bump IN:"
 item_0/selectable = false
 
 [node name="Plr2BumpOutItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1887059283]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -310,6 +319,7 @@ item_0/text = "Bump OUT:"
 item_0/selectable = false
 
 [node name="Plr2SlowItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1245588619]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -326,6 +336,7 @@ layout_mode = 2
 text = "OTHER"
 
 [node name="PauseEscapeItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=2085090820]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -334,6 +345,7 @@ item_0/text = "Pause/Escape:"
 item_0/selectable = false
 
 [node name="FullscreenToggleItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1098864459]
+unique_name_in_owner = true
 layout_mode = 2
 allow_search = false
 auto_height = true
@@ -353,4 +365,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
-[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1MoveUpItemList" to="." method="_on_plr_1_move_up_item_list_item_clicked"]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1MoveUpItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_up"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1MoveDownItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_down"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1BumpInItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_bump_right"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1BumpOutItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_bump_left"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1SlowItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_slow"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr2MoveUpItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr2_up"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr2MoveDownItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr2_down"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr2BumpInItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr2_bump_left"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr2BumpOutItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr2_bump_right"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr2SlowItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr2_slow"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/PauseEscapeItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["pause_escape"]]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/FullscreenToggleItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["fullscreen_toggle"]]
