@@ -84,6 +84,7 @@ size_flags_vertical = 3
 
 [node name="GeneralSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1529588087]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -209,34 +210,147 @@ theme_override_colors/font_color = Color(1, 0.8333334, 0, 1)
 disabled = true
 text = "Apply Court Size"
 
-[node name="KeybindsSettingsArea" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=880474456]
+[node name="KeybindsSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=450311021]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ExplanationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1719433896]
+layout_mode = 2
+text = "(Click on an action to add a new input, 
+or click on an input to remove it from an action.)"
+
+[node name="Spacer1" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=820865470]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Plr1CategoryLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1112174786]
+layout_mode = 2
+text = "PLAYER 1"
+
+[node name="Plr1MoveUpItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1579769183]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Move UP:"
+item_0/selectable = false
+
+[node name="Plr1MoveDownItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1539423199]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Move DOWN:"
+item_0/selectable = false
+
+[node name="Plr1BumpInItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1355043924]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Bump IN:"
+item_0/selectable = false
+
+[node name="Plr1BumpOutItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1392939479]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Bump OUT:"
+item_0/selectable = false
+
+[node name="Plr1SlowItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1553478018]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "SLOW:"
+item_0/selectable = false
+
+[node name="Spacer2" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1965298951]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Plr2CategoryLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1976621788]
+layout_mode = 2
+text = "PLAYER 2"
+
+[node name="Plr2MoveUpItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1033655289]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Move UP:"
+item_0/selectable = false
+
+[node name="Plr2MoveDownItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1897179412]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Move DOWN:"
+item_0/selectable = false
+
+[node name="Plr2BumpInItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=432509959]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Bump IN:"
+item_0/selectable = false
+
+[node name="Plr2BumpOutItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1887059283]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Bump OUT:"
+item_0/selectable = false
+
+[node name="Plr2SlowItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1245588619]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "SLOW:"
+item_0/selectable = false
+
+[node name="Spacer3" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=535679083]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="OtherCategoryLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1477938411]
+layout_mode = 2
+text = "OTHER"
+
+[node name="PauseEscapeItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=2085090820]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Pause/Escape:"
+item_0/selectable = false
+
+[node name="FullscreenToggleItemList" type="ItemList" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=1098864459]
+layout_mode = 2
+allow_search = false
+auto_height = true
+item_count = 1
+item_0/text = "Fullscreen Toggle:"
+item_0/selectable = false
+
+[node name="Spacer4" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=30236622]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="AdvancedSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1943605810]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" unique_id=450311021]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="AdvancedSettingsArea" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=80512771]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1943605810]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
+[connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1MoveUpItemList" to="." method="_on_plr_1_move_up_item_list_item_clicked"]

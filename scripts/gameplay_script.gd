@@ -36,10 +36,6 @@ func _process(delta: float):
 		return
 	handle_foulball()
 	
-	if Input.is_action_just_pressed("TEMP_TEST_FOUL"):
-		foulball_suspicion_start_time = Time.get_ticks_msec()
-		ball_velocity = Vector2(0,0)
-	
 	# Regular gameplay functionality:
 	handle_paddle_cpu(false, Globals.plr1_cpu_mode)
 	handle_paddle_cpu(true, Globals.plr2_cpu_mode)
