@@ -3,6 +3,24 @@ extends Control
 func _on_close_settings_button_pressed():
 	self.visible = false
 
+func _on_settings_tab_button_pressed(tab_name: String):
+	%GeneralTabButton.disabled = false
+	%KeybindsTabButton.disabled = false
+	%AdvancedTabButton.disabled = false
+	%GeneralSettingsArea.visible = false
+	%KeybindsSettingsArea.visible = false
+	%AdvancedSettingsArea.visible = false
+	match tab_name:
+		"General":
+			%GeneralTabButton.disabled = true
+			%GeneralSettingsArea.visible = true
+		"Keybinds":
+			%KeybindsTabButton.disabled = true
+			%KeybindsSettingsArea.visible = true
+		"Advanced":
+			%AdvancedTabButton.disabled = true
+			%AdvancedSettingsArea.visible = true
+
 
 func _on_keybinds_itemlist_clicked(index, _at_position, mouse_button_index, action_name: String):
 	if not (mouse_button_index == MouseButton.MOUSE_BUTTON_LEFT):
