@@ -2,6 +2,9 @@ extends Control
 
 func _ready():
 	%ApplyCourtSizeButton.visible = (get_tree().current_scene.name == "GameplayTopscene")
+	# !!! remember to make field changes auto apply from the titlescreen
+	# !!! but require the button from gameplay.
+	keybinds_itemlist_refresh()
 
 func _on_close_settings_button_pressed():
 	self.visible = false
@@ -75,3 +78,29 @@ func keybinds_itemlist_from_action(action_name: String) -> ItemList:
 			return %FullscreenToggleItemList
 		_:
 			return null
+
+func keybinds_itemlist_refresh(action_name: String = ""):
+	if action_name == "":
+		keybinds_itemlist_refresh("plr1_up")
+		keybinds_itemlist_refresh("plr1_down")
+		keybinds_itemlist_refresh("plr1_bump_left")
+		keybinds_itemlist_refresh("plr1_bump_right")
+		keybinds_itemlist_refresh("plr1_slow")
+		keybinds_itemlist_refresh("plr2_up")
+		keybinds_itemlist_refresh("plr2_down")
+		keybinds_itemlist_refresh("plr2_bump_left")
+		keybinds_itemlist_refresh("plr2_bump_right")
+		keybinds_itemlist_refresh("plr2_slow")
+		keybinds_itemlist_refresh("pause_escape")
+		keybinds_itemlist_refresh("fullscreen_toggle")
+		return
+	var itemlist_noderef: ItemList = keybinds_itemlist_from_action(action_name)
+	if itemlist_noderef == null:
+		push_error(
+			"Failed to get settings keybinds itemlist node reference for action: ",
+			action_name)
+		return
+	while itemlist_noderef.item_count > 1:
+		itemlist_noderef.remove_item(1)
+	for input_event in InputMap.action_get_events(action_name):
+		itemlist_noderef.add_item("    "+input_event.as_text(), null, false)
