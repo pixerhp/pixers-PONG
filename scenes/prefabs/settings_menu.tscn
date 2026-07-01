@@ -87,6 +87,7 @@ size_flags_vertical = 3
 
 [node name="GeneralSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1529588087]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -142,13 +143,9 @@ popup/item_1/id = 1
 popup/item_2/text = "c"
 popup/item_2/id = 2
 
-[node name="Plr1ForceSlowLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1649306380]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Player 1 forced slow:"
-
 [node name="Plr1ForceSlowBox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=118600039]
 layout_mode = 2
+text = "Force slow?"
 
 [node name="Plr2CPULabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1147637722]
 layout_mode = 2
@@ -167,13 +164,9 @@ popup/item_1/id = 1
 popup/item_2/text = "c"
 popup/item_2/id = 2
 
-[node name="Plr2ForceSlowLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1271640988]
-layout_mode = 2
-size_flags_horizontal = 0
-text = "Player 1 forced slow:"
-
 [node name="Plr2ForceSlowBox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1559108674]
 layout_mode = 2
+text = "Force slow?"
 
 [node name="Spacer2" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=592540868]
 custom_minimum_size = Vector2(0, 16)
@@ -211,6 +204,10 @@ layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.8333334, 0, 1)
 disabled = true
 text = "Apply Court Size"
+
+[node name="Spacer3" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=529361085]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
 
 [node name="KeybindsSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=450311021]
 unique_name_in_owner = true
@@ -362,10 +359,173 @@ layout_mode = 2
 
 [node name="AdvancedSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1943605810]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=905113041]
+layout_mode = 2
+text = "GAMEPLAY PHYSICS"
+
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=2125195664]
+layout_mode = 2
+text = "Maximum speed:"
+
+[node name="SpinBox" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1302238340]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 1.0
+max_value = 20000.0
+value = 4500.0
+rounded = true
+allow_greater = true
+
+[node name="Label4" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=899945838]
+layout_mode = 2
+text = "Minimum speed:"
+
+[node name="SpinBox2" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=61985365]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 1.0
+max_value = 20000.0
+value = 300.0
+rounded = true
+allow_greater = true
+
+[node name="Label5" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1291887647]
+layout_mode = 2
+text = "Paddle-hit speedup:"
+
+[node name="SpinBox3" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=298197305]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+max_value = 4000.0
+value = 35.0
+rounded = true
+allow_greater = true
+allow_lesser = true
+
+[node name="Label6" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=566171379]
+layout_mode = 2
+text = "Paddle bump duration (in milliseconds):"
+
+[node name="SpinBox4" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1440434870]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999999.0
+rounded = true
+allow_greater = true
+
+[node name="CheckBox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=119489842]
+layout_mode = 2
+button_pressed = true
+text = "Force all paddle hits to return ball forwards?"
+
+[node name="Spacer1" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1856709643]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=2043392836]
+layout_mode = 2
+text = "ANIMATIONS (in milliseconds)"
+
+[node name="Label7" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1914375412]
+layout_mode = 2
+text = "Paddle knockback duration:"
+
+[node name="SpinBox5" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1695852718]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Label8" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1871239293]
+layout_mode = 2
+text = "First-serve cutscene duration:"
+
+[node name="SpinBox6" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=496454872]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Label9" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1311349615]
+layout_mode = 2
+text = "Win/loss cutscene duration:"
+
+[node name="SpinBox7" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1618541821]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Label10" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1660925037]
+layout_mode = 2
+text = "Foul ball suspicion cutscene duration:"
+
+[node name="SpinBox8" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1385082785]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Label11" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=796386478]
+layout_mode = 2
+text = "Foul ball \"nevermind\" cutscene duration:"
+
+[node name="SpinBox9" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=460027831]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Label12" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=193352148]
+layout_mode = 2
+text = "Foul ball reserve cutscene duration:"
+
+[node name="SpinBox10" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1872440148]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Label13" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=873745056]
+layout_mode = 2
+text = "Post-serve cutscene duration:"
+
+[node name="SpinBox11" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=819962430]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 9999999999.0
+max_value = 9999999999.0
+value = 9999999999.0
+rounded = true
+allow_greater = true
+
+[node name="Spacer2" type="Control" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1746508254]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/GeneralTabButton" to="." method="_on_settings_tab_button_pressed" binds= ["General"]]

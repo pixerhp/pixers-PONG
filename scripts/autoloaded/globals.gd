@@ -1,19 +1,20 @@
 extends Node
 
 var GAME_SIZE: Vector2i = Vector2i(1260, 648) 
-# Vector2i(300, 200)
-# Vector2i(1260, 648) 
-# Vector2i(7680, 5760)
+# Vector2i(300, 200) min
+# Vector2i(1260, 648) default
+# Vector2i(7680, 5760) max
+
+var plr1_cpu_mode: int = CPU_MODES.OFF
+var plr1_force_slow: bool = false
+var plr2_cpu_mode: int = CPU_MODES.OFF
+var plr2_force_slow: bool = false
 
 var ball_max_speed: float = 4500
 var ball_min_speed: float = 300
 var ball_padhit_speedup: float = 35
 var prevent_ball_backhits: bool = true
 
-var plr1_cpu_mode: int = CPU_MODES.OFF
-var plr1_force_slow: bool = false
-var plr2_cpu_mode: int = CPU_MODES.OFF
-var plr2_force_slow: bool = false
 
 enum CPU_MODES {
 	OFF,
