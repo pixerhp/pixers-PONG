@@ -96,14 +96,14 @@ func set_court_size(new_court_size: Vector2 = Vector2(
 	ProjectSettings.get_setting("display/window/size/viewport_width"),
 	ProjectSettings.get_setting("display/window/size/viewport_height"))
 ):
-	Globals.GAME_SIZE = new_court_size
+	Globals.court_size = new_court_size
 	reset_all_gameobjects()
 
 func reset_all_gameobjects():
 	PAD_Y_TOPLIMIT = %LeftPaddle/%FrontBar.mesh.height / 2.0
-	PAD_Y_BOTTOMLIMIT = Globals.GAME_SIZE.y - (%LeftPaddle/%FrontBar.mesh.height / 2.0)
+	PAD_Y_BOTTOMLIMIT = Globals.court_size.y - (%LeftPaddle/%FrontBar.mesh.height / 2.0)
 	BALL_Y_TOPLIMIT = %BallShapeCast.shape.radius
-	BALL_Y_BOTTOMLIMIT = Globals.GAME_SIZE.y - %BallShapeCast.shape.radius
+	BALL_Y_BOTTOMLIMIT = Globals.court_size.y - %BallShapeCast.shape.radius
 	reset_framing()
 	reset_court_decorations()
 	update_scores_text()
@@ -115,42 +115,42 @@ func reset_all_gameobjects():
 	reset_arrow_pointers_and_line()
 
 func reset_framing():
-	get_window().set_content_scale_size(Globals.GAME_SIZE)
-	%CenteringParent.set_size(Globals.GAME_SIZE)
+	get_window().set_content_scale_size(Globals.court_size)
+	%CenteringParent.set_size(Globals.court_size)
 	%CenteringParent.set_position(
-		(get_viewport().get_visible_rect().size / 2.0) - (Globals.GAME_SIZE / 2.0))
-	%OuterVignettePanel.set_size(Globals.GAME_SIZE + Vector2i(50.0, 50.0))
+		(get_viewport().get_visible_rect().size / 2.0) - (Globals.court_size / 2.0))
+	%OuterVignettePanel.set_size(Globals.court_size + Vector2i(50.0, 50.0))
 	var outer_vignette_stylebox: StyleBoxFlat = %OuterVignettePanel.get_theme_stylebox("panel")
 	%OuterVignettePanel.set_position(Vector2(
 		0.0 - ((outer_vignette_stylebox.border_width_left + outer_vignette_stylebox.border_width_right) / 2.0),
 		0.0 - ((outer_vignette_stylebox.border_width_top + outer_vignette_stylebox.border_width_bottom) / 2.0)))
-	%ClippingParent.set_size(Globals.GAME_SIZE)
+	%ClippingParent.set_size(Globals.court_size)
 	%ClippingParent.set_position(Vector2(0,0))
 func reset_court_decorations():
-	%BackgroundColorRect.custom_minimum_size = Globals.GAME_SIZE
+	%BackgroundColorRect.custom_minimum_size = Globals.court_size
 	%CornerStripTL.position = Vector2(140, 72)
-	%CornerStripTR.position = Vector2(Globals.GAME_SIZE.x - 140, 72)
-	%CornerStripBL.position = Vector2(140, Globals.GAME_SIZE.y - 72)
-	%CornerStripBR.position = Vector2(Globals.GAME_SIZE.x - 140, Globals.GAME_SIZE.y - 72)
-	%Centerline1.position = (Globals.GAME_SIZE / 2.0) + Vector2(-105, 0)
-	%Centerline2.position = (Globals.GAME_SIZE / 2.0) + Vector2(-35, 0)
-	%Centerline3.position = (Globals.GAME_SIZE / 2.0) + Vector2(35, 0)
-	%Centerline4.position = (Globals.GAME_SIZE / 2.0) + Vector2(105, 0)
-	%Centerline1.mesh.size.y = Globals.GAME_SIZE.y
-	%LeftRailOuter.position = Vector2(120, Globals.GAME_SIZE.y / 2.0)
-	%RightRailOuter.position = Vector2(Globals.GAME_SIZE.x - 120, Globals.GAME_SIZE.y / 2.0)
-	%LeftRailOuter.mesh.height = Globals.GAME_SIZE.y - 25
-	%LeftRailInner.mesh.height = Globals.GAME_SIZE.y - 35
-	%CeilingCollisionShape.shape.size.x =  Globals.GAME_SIZE.x 
+	%CornerStripTR.position = Vector2(Globals.court_size.x - 140, 72)
+	%CornerStripBL.position = Vector2(140, Globals.court_size.y - 72)
+	%CornerStripBR.position = Vector2(Globals.court_size.x - 140, Globals.court_size.y - 72)
+	%Centerline1.position = (Globals.court_size / 2.0) + Vector2(-105, 0)
+	%Centerline2.position = (Globals.court_size / 2.0) + Vector2(-35, 0)
+	%Centerline3.position = (Globals.court_size / 2.0) + Vector2(35, 0)
+	%Centerline4.position = (Globals.court_size / 2.0) + Vector2(105, 0)
+	%Centerline1.mesh.size.y = Globals.court_size.y
+	%LeftRailOuter.position = Vector2(120, Globals.court_size.y / 2.0)
+	%RightRailOuter.position = Vector2(Globals.court_size.x - 120, Globals.court_size.y / 2.0)
+	%LeftRailOuter.mesh.height = Globals.court_size.y - 25
+	%LeftRailInner.mesh.height = Globals.court_size.y - 35
+	%CeilingCollisionShape.shape.size.x =  Globals.court_size.x 
 	%CeilingCollisionShape.position = Vector2(
-		Globals.GAME_SIZE.x / 2.0, 
+		Globals.court_size.x / 2.0, 
 		-1.0 * (%CeilingCollisionShape.shape.size.y / 2.0))
 	%FloorCollisionShape.position = Vector2(
-		Globals.GAME_SIZE.x / 2.0, 
-		Globals.GAME_SIZE.y + (%CeilingCollisionShape.shape.size.y / 2.0))
+		Globals.court_size.x / 2.0, 
+		Globals.court_size.y + (%CeilingCollisionShape.shape.size.y / 2.0))
 func reset_scores_visuals():
-	%LeftScoreStreak.position = Vector2(Globals.GAME_SIZE.x / 3.25, 70.0)
-	%RightScoreStreak.position = Vector2(Globals.GAME_SIZE.x-(Globals.GAME_SIZE.x/3.25), 70.0)
+	%LeftScoreStreak.position = Vector2(Globals.court_size.x / 3.25, 70.0)
+	%RightScoreStreak.position = Vector2(Globals.court_size.x-(Globals.court_size.x/3.25), 70.0)
 	%LeftScoreStreak.scale = Vector2(0.2, 0.2) 
 	%RightScoreStreak.scale = %LeftScoreStreak.scale
 	%LeftScoreStreak.rotation = 0.0
@@ -162,8 +162,8 @@ func reset_scores_visuals():
 	%RightScoreStreak/%ScoreContainer.rotation = 0.0
 	%RightScoreStreak/%StreakContainer.rotation = 0.0
 func reset_paddles():
-	%LeftPaddle.position = Vector2(120, Globals.GAME_SIZE.y / 2.0)
-	%RightPaddle.position = Vector2(Globals.GAME_SIZE.x - 120, Globals.GAME_SIZE.y / 2.0)
+	%LeftPaddle.position = Vector2(120, Globals.court_size.y / 2.0)
+	%RightPaddle.position = Vector2(Globals.court_size.x - 120, Globals.court_size.y / 2.0)
 	%LeftPaddle/%AnimChar.animation = (
 		("plr_" if (Globals.plr1_cpu_mode == Globals.CPU_MODES.OFF) else "bot_") + "idle")
 	%RightPaddle/%AnimChar.animation = (
@@ -177,7 +177,7 @@ func reset_paddles():
 	%LeftPaddle.modulate = Color.WHITE
 	%RightPaddle.modulate = Color.WHITE
 func reset_ball():
-	%Ball.position = Globals.GAME_SIZE / 2.0
+	%Ball.position = Globals.court_size / 2.0
 	ball_velocity = Vector2(0.0, 0.0)
 	ballshapecast_current_exceptions.clear()
 	%BallShapeCast.clear_exceptions()
@@ -187,7 +187,7 @@ func reset_balltrail():
 	balltrail_times.clear()
 	%BallTrail.clear_points()
 func reset_referee():
-	%Referee.position = Vector2(Globals.GAME_SIZE.x/2.0, Globals.GAME_SIZE.y + 144.0)
+	%Referee.position = Vector2(Globals.court_size.x/2.0, Globals.court_size.y + 144.0)
 	%Referee.scale.x = 1.0
 	%Referee.play("idle")
 	%EllipsisDot1.visible = false
@@ -196,7 +196,7 @@ func reset_referee():
 func reset_arrow_pointers_and_line():
 	%PrimaryArrowPointer.visible = false
 	%PrimaryArrowPointer/%QuestionSprite.visible = false
-	%PrimaryArrowPointer.position = Globals.GAME_SIZE / 2.0
+	%PrimaryArrowPointer.position = Globals.court_size / 2.0
 	%PrimaryArrowPointer/%RotationContainer.rotation_degrees = 0.0
 	%SecondaryArrowPointer.visible = %PrimaryArrowPointer.visible
 	%SecondaryArrowPointer/%QuestionSprite.visible = %PrimaryArrowPointer/%QuestionSprite.visible
@@ -252,7 +252,7 @@ func handle_firstserve():
 	# Serving animation:
 	var playthrough: float = prop_through_range(Time.get_ticks_msec(), 
 		firstserve_start_time, 
-		firstserve_start_time + FIRSTSERVE_ANIM_DURATION)
+		firstserve_start_time + Globals.firstserve_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		firstserve_anim_to_conclude = true
 		firstserve_animation(playthrough)
@@ -262,8 +262,8 @@ func handle_firstserve():
 		firstserve_anim_conclusion()
 	# Postserve animation:
 	playthrough = prop_through_range(Time.get_ticks_msec(), 
-		firstserve_start_time + FIRSTSERVE_ANIM_DURATION, 
-		firstserve_start_time + FIRSTSERVE_ANIM_DURATION + POSTSERVE_ANIM_DURATION)
+		firstserve_start_time + Globals.firstserve_anim_duration, 
+		firstserve_start_time + Globals.firstserve_anim_duration + Globals.postserve_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		postserve_anim_to_conclude = "firstserve"
 		postserve_animation(playthrough)
@@ -272,14 +272,13 @@ func handle_firstserve():
 		postserve_anim_to_conclude = ""
 		postserve_anim_conclusion()
 
-const FIRSTSERVE_ANIM_DURATION: int = 5000
 func firstserve_animation(playthrough: float):
 	# Paddles slide-in animation:
 	const PADS_SLIDEIN_START: float = 0.0
 	const PADS_SLIDEIN_END: float = 0.15
 	%LeftPaddle.position.x = -120.0 + (240.0 * 
 		clampf(prop_through_range(playthrough, PADS_SLIDEIN_START, PADS_SLIDEIN_END), 0.0, 1.0))
-	%RightPaddle.position.x = Globals.GAME_SIZE.x - %LeftPaddle.position.x
+	%RightPaddle.position.x = Globals.court_size.x - %LeftPaddle.position.x
 	# Paddles darkening (to help indicate/imply your inability to move):
 	%LeftPaddle.modulate = Color.GRAY
 	%RightPaddle.modulate = Color.GRAY
@@ -292,7 +291,7 @@ func firstserve_animation(playthrough: float):
 	# Referee slide-in animation:
 	const REF_SLIDEIN_START: float = 0.1
 	const REF_SLIDEIN_END: float = 0.2
-	%Referee.position.y = Globals.GAME_SIZE.y + (144.0 - (288.0 * 
+	%Referee.position.y = Globals.court_size.y + (144.0 - (288.0 * 
 		clampf(prop_through_range(playthrough, REF_SLIDEIN_START, REF_SLIDEIN_END), 0.0, 1.0)))
 	# Referee countdown:
 	const REF_COUNT_START: float = 0.4
@@ -342,7 +341,7 @@ func handle_winloss():
 	# Serving animation:
 	var playthrough: float = prop_through_range(Time.get_ticks_msec(), 
 		winloss_start_time, 
-		winloss_start_time + WINLOSS_ANIM_DURATION)
+		winloss_start_time + Globals.winloss_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		winloss_anim_to_conclude = true
 		winloss_animation(playthrough)
@@ -352,8 +351,8 @@ func handle_winloss():
 		winloss_anim_conclusion()
 	# Postserve animation:
 	playthrough = prop_through_range(Time.get_ticks_msec(), 
-		winloss_start_time + WINLOSS_ANIM_DURATION, 
-		winloss_start_time + WINLOSS_ANIM_DURATION + POSTSERVE_ANIM_DURATION)
+		winloss_start_time + Globals.winloss_anim_duration, 
+		winloss_start_time + Globals.winloss_anim_duration + Globals.postserve_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		postserve_anim_to_conclude = "winloss"
 		postserve_animation(playthrough)
@@ -369,11 +368,11 @@ func detect_winloss_state() -> bool:
 		return false
 	const SECONDS_OFFSCREEN_BEFORE_RESERVE: float = 0.25
 	var edge_clearance: float = BALL_Y_TOPLIMIT + (abs(ball_velocity.x) * SECONDS_OFFSCREEN_BEFORE_RESERVE)
-	return abs(%Ball.position.x - (Globals.GAME_SIZE.x / 2.0)) > ((Globals.GAME_SIZE.x / 2.0) + edge_clearance)
+	return abs(%Ball.position.x - (Globals.court_size.x / 2.0)) > ((Globals.court_size.x / 2.0) + edge_clearance)
 
 func initiate_winloss():
 	# Change player scores/streaks:
-	if (%Ball.position.x < (Globals.GAME_SIZE.x / 2.0)):
+	if (%Ball.position.x < (Globals.court_size.x / 2.0)):
 		plr2_score += 1; plr2_streak += 1; plr1_streak = 0;
 	else:
 		plr1_score += 1; plr1_streak += 1; plr2_streak = 0;
@@ -385,12 +384,11 @@ func initiate_winloss():
 	reset_balltrail()
 	winloss_start_time = Time.get_ticks_msec()
 
-const WINLOSS_ANIM_DURATION: int = 4500
 func winloss_animation(playthrough: float):
 	# Referee slide-in animation:
 	const REF_SLIDEIN_START: float = 0.0
 	const REF_SLIDEIN_END: float = 0.15
-	%Referee.position.y = Globals.GAME_SIZE.y + (144.0 - (288.0 * 
+	%Referee.position.y = Globals.court_size.y + (144.0 - (288.0 * 
 		clampf(prop_through_range(playthrough, REF_SLIDEIN_START, REF_SLIDEIN_END), 0.0, 1.0)))
 	# Referee animation:
 	const REF_COUNT_START: float = 0.675
@@ -436,9 +434,9 @@ func winloss_animation(playthrough: float):
 	const PADS_SLIDE_END: float = 0.1
 	weight = ease_in_out(clampf(prop_through_range(playthrough, PADS_SLIDE_START, PADS_SLIDE_END), 0.0, 1.0), 2.0)
 	%LeftPaddle.position = ((anim_lpad_start_pos * (1.0-weight)) + 
-		(Vector2(120, Globals.GAME_SIZE.y / 2.0) * weight))
+		(Vector2(120, Globals.court_size.y / 2.0) * weight))
 	%RightPaddle.position = ((anim_rpad_start_pos * (1.0-weight)) + 
-		(Vector2(Globals.GAME_SIZE.x - 120, Globals.GAME_SIZE.y / 2.0) * weight))
+		(Vector2(Globals.court_size.x - 120, Globals.court_size.y / 2.0) * weight))
 	# Paddle character animations:
 	if (playthrough > REF_COUNT_START):
 		%LeftPaddle.modulate = Color.GRAY
@@ -474,7 +472,7 @@ func winloss_animation(playthrough: float):
 	const BALL_RETURN_START: float = 0.3
 	const BALL_RETURN_END: float = ARROWS_FADEIN_START
 	weight = ease_out(clampf(prop_through_range(playthrough, BALL_RETURN_START, BALL_RETURN_END), 0.0, 1.0), 3.0)
-	%Ball.position = ((anim_ball_start_pos * (1.0 - weight)) + ((Globals.GAME_SIZE / 2.0) * weight))
+	%Ball.position = ((anim_ball_start_pos * (1.0 - weight)) + ((Globals.court_size / 2.0) * weight))
 	# Use ball trail:
 	balltrail_positions.append(%Ball.position)
 	balltrail_times.append(Time.get_ticks_msec())
@@ -498,7 +496,7 @@ func handle_foulball():
 	# Serving animation:
 	var playthrough: float = prop_through_range(Time.get_ticks_msec(),
 		foulball_reserve_start_time,
-		foulball_reserve_start_time + FOULBALL_RESERVE_ANIM_DURATION)
+		foulball_reserve_start_time + Globals.foulball_reserve_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		foulball_reserve_anim_to_conclude = true
 		foulball_reserve_animation(playthrough)
@@ -508,8 +506,8 @@ func handle_foulball():
 		foulball_reserve_anim_conclusion()
 	# Postserve animation:
 	playthrough = prop_through_range(Time.get_ticks_msec(),
-		foulball_reserve_start_time + FOULBALL_RESERVE_ANIM_DURATION,
-		foulball_reserve_start_time + FOULBALL_RESERVE_ANIM_DURATION + POSTSERVE_ANIM_DURATION)
+		foulball_reserve_start_time + Globals.foulball_reserve_anim_duration,
+		foulball_reserve_start_time + Globals.foulball_reserve_anim_duration + Globals.postserve_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		postserve_anim_to_conclude = "foulball"
 		postserve_animation(playthrough)
@@ -524,7 +522,7 @@ func handle_foulball():
 	# Foul-ball suspicion animation:
 	playthrough = prop_through_range(Time.get_ticks_msec(),
 		foulball_suspicion_start_time,
-		foulball_suspicion_start_time + FOULBALL_SUSPICION_ANIM_DURATION)
+		foulball_suspicion_start_time + Globals.foulball_suspicion_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0):
 		foulball_suspicion_anim_to_conclude = true
 		foulball_suspicion_animation(playthrough)
@@ -534,8 +532,8 @@ func handle_foulball():
 		foulball_suspicion_anim_conclusion()
 	# Foul-ball nevermind animation:
 	playthrough = prop_through_range(Time.get_ticks_msec(),
-		foulball_suspicion_start_time + FOULBALL_SUSPICION_ANIM_DURATION,
-		foulball_suspicion_start_time + FOULBALL_SUSPICION_ANIM_DURATION + FOULBALL_NEVERMIND_ANIM_DURATION)
+		foulball_suspicion_start_time + Globals.foulball_suspicion_anim_duration,
+		foulball_suspicion_start_time + Globals.foulball_suspicion_anim_duration + Globals.foulball_nevermind_anim_duration)
 	if is_in_range_f(playthrough, 0.0, 1.0) or foulball_reserve_anim_to_conclude:
 		foulball_nevermind_anim_to_conclude = true
 		foulball_nevermind_animation(playthrough)
@@ -555,11 +553,10 @@ func detect_foulball_state() -> bool:
 		(abs(Vector2(abs(ball_velocity.x), abs(ball_velocity.y)).angle()) > rad_to_deg(84.0))
 	)
 
-const FOULBALL_SUSPICION_ANIM_DURATION: int = 2000
 func foulball_suspicion_animation(playthrough: float):
 	const REF_RISE_START: float = 0.0
 	const REF_RISE_END: float = 0.5
-	%Referee.position.y = Globals.GAME_SIZE.y + (144.0 - (180.0 * 
+	%Referee.position.y = Globals.court_size.y + (144.0 - (180.0 * 
 		clampf(prop_through_range(playthrough, REF_RISE_START, REF_RISE_END), 0.0, 1.0)))
 	const ELLIPSIS_START: float = 0.0
 	const ELLIPSIS_END: float = 1.0
@@ -586,22 +583,20 @@ func foulball_suspicion_anim_conclusion():
 		foulball_reserve_anim_to_conclude = false
 		foulball_reserve_start_time = BAD_TIME
 
-const FOULBALL_NEVERMIND_ANIM_DURATION: int = 500
 func foulball_nevermind_animation(playthrough: float):
-	%Referee.position.y = Globals.GAME_SIZE.y + -36.0 + (180.0 * 
+	%Referee.position.y = Globals.court_size.y + -36.0 + (180.0 * 
 		clampf(prop_through_range(playthrough, 0.0, 1.0), 0.0, 1.0))
 
 var foulball_nevermind_anim_to_conclude: bool = false
 func foulball_nevermind_anim_conclusion():
 	reset_referee()
 
-const FOULBALL_RESERVE_ANIM_DURATION: int = 5000
 var foulball_cause_is_plr2: bool = false
 func foulball_reserve_animation(playthrough: float):
 	# Referee animation:
 	const REF_RISE_START: float = 0.0
 	const REF_RISE_END: float = 0.15
-	%Referee.position.y = Globals.GAME_SIZE.y + -36.0 - (108.0 * 
+	%Referee.position.y = Globals.court_size.y + -36.0 - (108.0 * 
 		clampf(prop_through_range(playthrough, REF_RISE_START, REF_RISE_END), 0.0, 1.0))
 	const REF_FOUL_GESTURE_START: float = REF_RISE_START
 	const REF_FOUL_GESTURE_END: float = 0.25
@@ -634,14 +629,14 @@ func foulball_reserve_animation(playthrough: float):
 	%FoulReserveLine.visible = true
 	%FoulReserveLine.modulate = %PrimaryArrowPointer.modulate 
 	%FoulReserveLine.points = PackedVector2Array([
-		Vector2((Globals.GAME_SIZE.x / 2.0) + (170.0 * (-1.0 if foulball_cause_is_plr2 else 1.0)), Globals.GAME_SIZE.y / 2.0),
-		Vector2((0.0 if foulball_cause_is_plr2 else float(Globals.GAME_SIZE.x)), float(Globals.GAME_SIZE.y) / 2.0),
+		Vector2((Globals.court_size.x / 2.0) + (170.0 * (-1.0 if foulball_cause_is_plr2 else 1.0)), Globals.court_size.y / 2.0),
+		Vector2((0.0 if foulball_cause_is_plr2 else float(Globals.court_size.x)), float(Globals.court_size.y) / 2.0),
 	])
 	# Ball animation and velocity (set for the sake of CPU behavior):
 	const BALL_RETURN_START: float = 0.0
 	const BALL_RETURN_END: float = ARROW_FADEIN_START
 	var weight: float = ease_out(clampf(prop_through_range(playthrough, BALL_RETURN_START, BALL_RETURN_END), 0.0, 1.0), 3.0)
-	%Ball.position = ((anim_ball_start_pos * (1.0 - weight)) + ((Globals.GAME_SIZE / 2.0) * weight))
+	%Ball.position = ((anim_ball_start_pos * (1.0 - weight)) + ((Globals.court_size / 2.0) * weight))
 	ball_velocity = Vector2(Globals.ball_max_speed * 0.6 * (-1.0 if foulball_cause_is_plr2 else 1.0), 0.0) 
 	postserve_point_towards_plr2 = ball_velocity.x > 0.0
 	anim_arrow_serve_angle = ball_velocity.angle()
@@ -655,10 +650,10 @@ func foulball_reserve_anim_conclusion():
 	reset_arrow_pointers_and_line()
 
 func padchar_foulball_guilt_expression():
-	if not (Time.get_ticks_msec() < (foulball_reserve_start_time + FOULBALL_RESERVE_ANIM_DURATION)):
+	if not (Time.get_ticks_msec() < (foulball_reserve_start_time + Globals.foulball_reserve_anim_duration)):
 		return
 	var playthrough: float = prop_through_range(Time.get_ticks_msec(), 
-		foulball_reserve_start_time, foulball_reserve_start_time + FOULBALL_RESERVE_ANIM_DURATION)
+		foulball_reserve_start_time, foulball_reserve_start_time + Globals.foulball_reserve_anim_duration)
 	const GUILT_EXPRESSION_START: float = 0.0
 	const GUILT_EXPRESSION_END: float = 0.2
 	if not is_in_range_f(playthrough, GUILT_EXPRESSION_START, GUILT_EXPRESSION_END):
@@ -670,7 +665,6 @@ func padchar_foulball_guilt_expression():
 		(foulball_cause_is_plr2 and (Globals.plr2_cpu_mode == Globals.CPU_MODES.OFF))) else "bot")
 	padchar_noderef.play(prefix + "_surprised")
 
-const POSTSERVE_ANIM_DURATION: int = 1250
 var postserve_point_towards_plr2: bool = false
 func postserve_animation(playthrough: float):
 	# Referee animation handling:
@@ -684,7 +678,7 @@ func postserve_animation(playthrough: float):
 	# Referee position handling:
 	if (playthrough > REF_POINTING_LOWERING_SPLIT):
 		%Referee.position.y = (
-			(Globals.GAME_SIZE.y - 144.0) +
+			(Globals.court_size.y - 144.0) +
 			288.0 * prop_through_range(playthrough, REF_POINTING_LOWERING_SPLIT, 1.0)
 		)
 	# Arrow point and fadeout:
@@ -753,7 +747,7 @@ func handle_paddle_cpu(is_plr2: bool, ai_mode):
 				set_input(act_prefix + "bump_right", false)
 		Globals.CPU_MODES.ZIGZAGGER:
 			if paddle_noderef.get_meta("velocity") == 0.0:
-				if paddle_noderef.position.y < Globals.GAME_SIZE.y / 2.0:
+				if paddle_noderef.position.y < Globals.court_size.y / 2.0:
 					set_input(act_prefix + "up", false)
 					set_input(act_prefix + "down", true)
 				else:
@@ -786,8 +780,8 @@ func handle_paddle_cpu(is_plr2: bool, ai_mode):
 				((ball_velocity.x < 0.0) if is_plr2 else (ball_velocity.x > 0.0)) or 
 				(predicted_ball_y < BALL_Y_TOPLIMIT) or (predicted_ball_y > BALL_Y_BOTTOMLIMIT)
 			):
-				set_input(act_prefix + "up", paddle_noderef.position.y > ((Globals.GAME_SIZE.y / 2.0) + (PAD_Y_TOPLIMIT * 0.5)))
-				set_input(act_prefix + "down", paddle_noderef.position.y < ((Globals.GAME_SIZE.y / 2.0) - (PAD_Y_TOPLIMIT * 0.5)))
+				set_input(act_prefix + "up", paddle_noderef.position.y > ((Globals.court_size.y / 2.0) + (PAD_Y_TOPLIMIT * 0.5)))
+				set_input(act_prefix + "down", paddle_noderef.position.y < ((Globals.court_size.y / 2.0) - (PAD_Y_TOPLIMIT * 0.5)))
 			else: # Else move to the predicted ball location:
 				set_input(act_prefix + "up", paddle_noderef.position.y > predicted_ball_y + (PAD_Y_TOPLIMIT * 0.5))
 				set_input(act_prefix + "down", paddle_noderef.position.y < predicted_ball_y - (PAD_Y_TOPLIMIT * 0.5))
@@ -816,8 +810,8 @@ func handle_paddle_cpu(is_plr2: bool, ai_mode):
 				else:
 					break
 				if i >= (BOUNCE_LIMIT - 1):
-					set_input(act_prefix + "up", paddle_noderef.position.y > ((Globals.GAME_SIZE.y / 2.0) + (PAD_Y_TOPLIMIT * 0.5)))
-					set_input(act_prefix + "down", paddle_noderef.position.y < ((Globals.GAME_SIZE.y / 2.0) - (PAD_Y_TOPLIMIT * 0.5)))
+					set_input(act_prefix + "up", paddle_noderef.position.y > ((Globals.court_size.y / 2.0) + (PAD_Y_TOPLIMIT * 0.5)))
+					set_input(act_prefix + "down", paddle_noderef.position.y < ((Globals.court_size.y / 2.0) - (PAD_Y_TOPLIMIT * 0.5)))
 					return
 			if ((ball_velocity.x < 0.0) if is_plr2 else (ball_velocity.x > 0.0)):
 				set_input(act_prefix + "up", false)
@@ -837,8 +831,8 @@ func handle_paddle_cpu(is_plr2: bool, ai_mode):
 				else:
 					break
 				if i >= (BOUNCE_LIMIT - 1):
-					set_input(act_prefix + "up", paddle_noderef.position.y > ((Globals.GAME_SIZE.y / 2.0) + (PAD_Y_TOPLIMIT * 0.5)))
-					set_input(act_prefix + "down", paddle_noderef.position.y < ((Globals.GAME_SIZE.y / 2.0) - (PAD_Y_TOPLIMIT * 0.5)))
+					set_input(act_prefix + "up", paddle_noderef.position.y > ((Globals.court_size.y / 2.0) + (PAD_Y_TOPLIMIT * 0.5)))
+					set_input(act_prefix + "down", paddle_noderef.position.y < ((Globals.court_size.y / 2.0) - (PAD_Y_TOPLIMIT * 0.5)))
 					return
 			if ((ball_velocity.x < 0.0) if is_plr2 else (ball_velocity.x > 0.0)):
 				set_input(act_prefix + "up", false)
@@ -935,7 +929,7 @@ const PAD_MOVEACCEL: float = 14400.0
 const PAD_MAXSPEED: float = 1250.0
 const PAD_SLOWDOWN: float = 0.05 # Note: Values closer to 0 correlate with higher friction.
 @onready var PAD_Y_TOPLIMIT: float = %LeftPaddle/%FrontBar.mesh.height / 2.0
-@onready var PAD_Y_BOTTOMLIMIT: float = Globals.GAME_SIZE.y - (%LeftPaddle/%FrontBar.mesh.height / 2.0)
+@onready var PAD_Y_BOTTOMLIMIT: float = Globals.court_size.y - (%LeftPaddle/%FrontBar.mesh.height / 2.0)
 const SURP_EXPR_VARIATION: float = 750.0
 const SURP_EXPR_BASE: float = 250.0
 const SURP_EXPR_FALLOFF: float = 750.0
@@ -957,16 +951,16 @@ func handle_paddle_controls(is_plr2: bool, delta: float):
 		paddlemesh_bars_noderef.modulate = Color.LIGHT_GRAY
 	
 	# Handle sidebump inputs:
-	if (Time.get_ticks_msec() - paddle_noderef.get_meta("sidebump_time")) > SIDEBUMP_DURATION:
+	if (Time.get_ticks_msec() - paddle_noderef.get_meta("sidebump_time")) > Globals.pad_sidebump_duration:
 		if Input.is_action_pressed(plr_prefix + "bump_right"):
 			paddle_noderef.set_meta("sidebump_time", Time.get_ticks_msec())
-			paddle_noderef.set_meta("sidebump_strength", SIDEBUMP_STRENGTH_AMOUNT * (-1.0 if is_plr2 else 1.0))
+			paddle_noderef.set_meta("sidebump_strength", Globals.pad_sidebump_strength * (-1.0 if is_plr2 else 1.0))
 		elif Input.is_action_pressed(plr_prefix + "bump_left"):
 			paddle_noderef.set_meta("sidebump_time", Time.get_ticks_msec())
-			paddle_noderef.set_meta("sidebump_strength", -1.0 * SIDEBUMP_STRENGTH_AMOUNT * (-1.0 if is_plr2 else 1.0))
+			paddle_noderef.set_meta("sidebump_strength", -1.0 * Globals.pad_sidebump_strength * (-1.0 if is_plr2 else 1.0))
 	
 	# Other movement controls are disabled if the player is in a bump left/right state:
-	if (Time.get_ticks_msec() - paddle_noderef.get_meta("sidebump_time")) < SIDEBUMP_DURATION:
+	if (Time.get_ticks_msec() - paddle_noderef.get_meta("sidebump_time")) < Globals.pad_sidebump_duration:
 		pad_vel *= pow(PAD_SLOWDOWN, delta)
 		if abs(pad_vel) < 0.1:
 			padchar_noderef.animation = padchar_anim_prefix + "idle"
@@ -1011,22 +1005,20 @@ func handle_paddle_controls(is_plr2: bool, delta: float):
 	((SURP_EXPR_VARIATION / (1.0 + (ball_velocity.x / SURP_EXPR_FALLOFF))) + SURP_EXPR_BASE)):
 		padchar_noderef.animation = padchar_anim_prefix + "surprised"
 
-const SIDEBUMP_DURATION: int = 400
-const SIDEBUMP_STRENGTH_AMOUNT: float = 25.0
+
 func handle_paddle_sidebump_animation(is_plr2: bool):
 	var paddle_noderef: Node2D = (%RightPaddle if is_plr2 else %LeftPaddle)
 	var time_since: int = Time.get_ticks_msec() - paddle_noderef.get_meta("sidebump_time")
-	if time_since > SIDEBUMP_DURATION:
-		paddle_noderef.position.x = (float(Globals.GAME_SIZE.x) - 120.0) if is_plr2 else 120.0
+	if time_since > Globals.pad_sidebump_duration:
+		paddle_noderef.position.x = (float(Globals.court_size.x) - 120.0) if is_plr2 else 120.0
 		return
 	var bump_strength: float = paddle_noderef.get_meta("sidebump_strength")
-	var parabola_weight: float = parabola_arc_weight(time_since, SIDEBUMP_DURATION)
+	var parabola_weight: float = parabola_arc_weight(time_since, Globals.pad_sidebump_duration)
 	paddle_noderef.position.x = 120 + (parabola_weight * bump_strength)
-	if is_plr2: paddle_noderef.position.x = Globals.GAME_SIZE.x - paddle_noderef.position.x
+	if is_plr2: paddle_noderef.position.x = Globals.court_size.x - paddle_noderef.position.x
 
 func handle_paddle_knockback_anim(is_plr2: bool):
 	const OOMF_LURCH_RATIO: float = 0.0035
-	const KNOCKBACK_ANIM_DURATION: int = 120
 	const MIN_OOMF_CUTOFF: float = 700.0
 	var pad_mesh_container_ref: Node2D = (
 		%RightPaddle/%MeshContainer if is_plr2 else %LeftPaddle/%MeshContainer)
@@ -1034,11 +1026,11 @@ func handle_paddle_knockback_anim(is_plr2: bool):
 	if abs(oomf) < MIN_OOMF_CUTOFF:
 		return
 	var time_since: int = Time.get_ticks_msec() - pad_mesh_container_ref.get_meta("knockback_time")
-	if time_since > KNOCKBACK_ANIM_DURATION:
+	if time_since > Globals.pad_knockback_duration:
 		pad_mesh_container_ref.position.x = 0.0
 		return
 	pad_mesh_container_ref.position.x = (oomf * OOMF_LURCH_RATIO * (1.0 if is_plr2 else -1.0) *
-		clampf(parabola_arc_weight(time_since, KNOCKBACK_ANIM_DURATION), 0.0, 1.0))
+		clampf(parabola_arc_weight(time_since, Globals.pad_knockback_duration), 0.0, 1.0))
 
 # Used for parabolic movement arcs, such as paddle knockback and side-bumps:
 func parabola_arc_weight(time_since: int, anim_time_length: int) -> float:
@@ -1049,7 +1041,7 @@ func parabola_arc_derivative(time_since: int, anim_time_length: int) -> float:
 
 # Constants and variables associated with the ball's movement:
 @onready var BALL_Y_TOPLIMIT: float = %BallShapeCast.shape.radius
-@onready var BALL_Y_BOTTOMLIMIT: float = Globals.GAME_SIZE.y - %BallShapeCast.shape.radius
+@onready var BALL_Y_BOTTOMLIMIT: float = Globals.court_size.y - %BallShapeCast.shape.radius
 const BALL_MAX_BOUNCE_LOOPS: int = 100
 var ball_velocity: Vector2 = Vector2(0.0, 0.0)
 func handle_ball_collision_movement(delta: float):
@@ -1078,7 +1070,7 @@ func handle_ball_collision_movement(delta: float):
 		balltrail_times.append(Time.get_ticks_msec())
 		
 		# Remove paddle collision exceptions for the paddle farthest from the ball.
-		if ball_curr_position.x < (Globals.GAME_SIZE.x / 2.0):
+		if ball_curr_position.x < (Globals.court_size.x / 2.0):
 			rem_add_ballshapecast_coll_exceptions(%RightPaddle/PadCollider)
 			rem_add_ballshapecast_coll_exceptions(%RightPaddle/CharCollider)
 		else:
@@ -1177,9 +1169,9 @@ func calc_paddlehit_bounce(ball_hit_pos: Vector2, is_plr2: bool) -> Vector2:
 		ball_velocity = ball_velocity.normalized() * Globals.ball_max_speed
 	
 	var paddle_sidebump_time_since: int = Time.get_ticks_msec() - paddle_noderef.get_meta("sidebump_time")
-	if paddle_sidebump_time_since < SIDEBUMP_DURATION:
+	if paddle_sidebump_time_since < Globals.pad_sidebump_duration:
 		var paddle_sidebump_strength: float = paddle_noderef.get_meta("sidebump_strength")
-		var horizontal_boost: float = parabola_arc_derivative(paddle_sidebump_time_since, SIDEBUMP_DURATION) * paddle_sidebump_strength
+		var horizontal_boost: float = parabola_arc_derivative(paddle_sidebump_time_since, Globals.pad_sidebump_duration) * paddle_sidebump_strength
 		horizontal_boost *= (-1.0 if is_plr2 else 1.0)
 		ball_velocity.x += horizontal_boost # This is intentionally added *after* the speed limit check is done.
 	
@@ -1200,7 +1192,6 @@ func calc_charthrow(init_vel: Vector2, is_plr2: bool) -> Vector2:
 		atan(init_vel.y/init_vel.x) * 0.25 * (-1.0 if (init_vel.x < 0.0) else 1.0) * (-1.0 if is_plr2 else 1.0))
 
 # Constants and variables associated with the ball's trail:
-const BALLTRAIL_DURATION: float = 250 # (Time in ms.)
 var balltrail_positions: PackedVector2Array = []
 var balltrail_times: PackedInt64Array = []
 
@@ -1208,7 +1199,7 @@ func update_ball_trail():
 	# Remove outdated trail data:
 	var deletion_up_bound: int = -1
 	for i in range(balltrail_times.size()):
-		if (Time.get_ticks_msec() - balltrail_times[i]) > BALLTRAIL_DURATION:
+		if (Time.get_ticks_msec() - balltrail_times[i]) > Globals.balltrail_duration:
 			deletion_up_bound = i
 		else:
 			break
