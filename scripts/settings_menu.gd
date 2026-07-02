@@ -1,10 +1,14 @@
 extends Control
 
+#### UNIVERSAL:
+
 func _ready():
 	%ApplyCourtSizeButton.visible = (get_tree().current_scene.name == "GameplayTopscene")
 	# !!! remember to make field changes auto apply from the titlescreen
 	# !!! but require the button from gameplay.
-	keybinds_itemlist_refresh()
+	refresh_general_settings()
+	refresh_keybinds_settings()
+	refresh_avdanced_settings()
 
 func _on_close_settings_button_pressed():
 	self.visible = false
@@ -27,6 +31,27 @@ func _on_settings_tab_button_pressed(tab_name: String):
 			%AdvancedTabButton.disabled = true
 			%AdvancedSettingsArea.visible = true
 
+#### GENERAL
+
+# !!! remember to involve audio stuff later
+
+func refresh_general_settings():
+	%MusicVolumeSlider.value = Globals.music_volume
+	%SoundsVolumeSlider.value = Globals.sounds_volume
+	%Plr1CPUDropdown.clear()
+	%Plr2CPUDropdown.clear()
+	for cpu_mode in Globals.CPU_MODES:
+		%Plr1CPUDropdown.add_item(cpu_mode)
+		%Plr2CPUDropdown.add_item(cpu_mode)
+	%Plr1CPUDropdown.selected = Globals.plr1_cpu_mode
+	%Plr2CPUDropdown.selected = Globals.plr2_cpu_mode
+	%Plr1ForceSlowTickbox.button_pressed = Globals.plr1_force_slow
+	%Plr2ForceSlowTickbox.button_pressed = Globals.plr2_force_slow
+	%CourtWidthEntry.value = Globals.court_size.x
+	%CourtHeightEntry.value = Globals.court_size.y
+	%ApplyCourtSizeButton.disabled = true
+
+#### KEYBINDS
 
 func _on_keybinds_itemlist_clicked(index, _at_position, mouse_button_index, action_name: String):
 	if not (mouse_button_index == MouseButton.MOUSE_BUTTON_LEFT):
@@ -79,20 +104,20 @@ func keybinds_itemlist_from_action(action_name: String) -> ItemList:
 		_:
 			return null
 
-func keybinds_itemlist_refresh(action_name: String = ""):
+func refresh_keybinds_settings(action_name: String = ""):
 	if action_name == "":
-		keybinds_itemlist_refresh("plr1_up")
-		keybinds_itemlist_refresh("plr1_down")
-		keybinds_itemlist_refresh("plr1_bump_left")
-		keybinds_itemlist_refresh("plr1_bump_right")
-		keybinds_itemlist_refresh("plr1_slow")
-		keybinds_itemlist_refresh("plr2_up")
-		keybinds_itemlist_refresh("plr2_down")
-		keybinds_itemlist_refresh("plr2_bump_left")
-		keybinds_itemlist_refresh("plr2_bump_right")
-		keybinds_itemlist_refresh("plr2_slow")
-		keybinds_itemlist_refresh("pause_escape")
-		keybinds_itemlist_refresh("fullscreen_toggle")
+		refresh_keybinds_settings("plr1_up")
+		refresh_keybinds_settings("plr1_down")
+		refresh_keybinds_settings("plr1_bump_left")
+		refresh_keybinds_settings("plr1_bump_right")
+		refresh_keybinds_settings("plr1_slow")
+		refresh_keybinds_settings("plr2_up")
+		refresh_keybinds_settings("plr2_down")
+		refresh_keybinds_settings("plr2_bump_left")
+		refresh_keybinds_settings("plr2_bump_right")
+		refresh_keybinds_settings("plr2_slow")
+		refresh_keybinds_settings("pause_escape")
+		refresh_keybinds_settings("fullscreen_toggle")
 		return
 	var itemlist_noderef: ItemList = keybinds_itemlist_from_action(action_name)
 	if itemlist_noderef == null:
@@ -104,3 +129,8 @@ func keybinds_itemlist_refresh(action_name: String = ""):
 		itemlist_noderef.remove_item(1)
 	for input_event in InputMap.action_get_events(action_name):
 		itemlist_noderef.add_item("    "+input_event.as_text(), null, false)
+
+#### ADVANCED
+
+func refresh_avdanced_settings():
+	pass

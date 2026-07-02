@@ -97,6 +97,7 @@ size_flags_horizontal = 0
 text = "Music volume:"
 
 [node name="MusicVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=528539014]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -112,6 +113,7 @@ size_flags_horizontal = 0
 text = "Sound effects volume:"
 
 [node name="SoundsVolumeSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=443747205]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 0
@@ -131,6 +133,7 @@ size_flags_horizontal = 0
 text = "Player 1's CPU mode:"
 
 [node name="Plr1CPUDropdown" type="OptionButton" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1779187966]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(600, -1)
 layout_mode = 2
 selected = 0
@@ -142,7 +145,8 @@ popup/item_1/id = 1
 popup/item_2/text = "c"
 popup/item_2/id = 2
 
-[node name="Plr1ForceSlowBox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=118600039]
+[node name="Plr1ForceSlowTickbox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=118600039]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Force slow?"
 
@@ -152,6 +156,7 @@ size_flags_horizontal = 0
 text = "Player 2's CPU mode:"
 
 [node name="Plr2CPUDropdown" type="OptionButton" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1601151497]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(600, -1)
 layout_mode = 2
 selected = 1
@@ -163,7 +168,8 @@ popup/item_1/id = 1
 popup/item_2/text = "c"
 popup/item_2/id = 2
 
-[node name="Plr2ForceSlowBox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1559108674]
+[node name="Plr2ForceSlowTickbox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1559108674]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Force slow?"
 
@@ -178,6 +184,7 @@ text = "Playing court width & height:
 (Default is 1260 x 648)"
 
 [node name="CourtWidthEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1988592294]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 300.0
@@ -188,6 +195,7 @@ allow_greater = true
 allow_lesser = true
 
 [node name="CourtHeightEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=866980943]
+unique_name_in_owner = true
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 200.0
