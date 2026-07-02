@@ -55,7 +55,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7nafq")
 
-[node name="TSPixerArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1451439561]
+[node name="TSPixerHPArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1451439561]
+unique_name_in_owner = true
+
+[node name="TSpixersArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1729819490]
+unique_name_in_owner = true
+
+[node name="TSPONGArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1389691498]
 unique_name_in_owner = true
 
 [node name="TSExitTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=1406988074]
@@ -125,7 +131,7 @@ texture = ExtResource("4_bjlud")
 unique_name_in_owner = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSBonusTexture/TSBonusArea" unique_id=104149843]
-polygon = PackedVector2Array(0, 256, 24, 246, 63, 243, 107, 260, 128, 303, 122, 340, 108, 361, 74, 374, 29, 374, 2, 366)
+polygon = PackedVector2Array(0, 261, 35, 242, 61, 235, 76, 217, 93, 214, 100, 225, 103, 256, 117, 276, 125, 301, 122, 340, 108, 361, 74, 374, 29, 374, 2, 366)
 
 [node name="SettingsMenu" parent="." unique_id=780968585 instance=ExtResource("2_q7xs3")]
 unique_name_in_owner = true
