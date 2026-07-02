@@ -29,6 +29,22 @@ func _on_settings_tab_button_pressed(tab_name: String):
 			%AdvancedTabButton.disabled = true
 			%AdvancedSettingsArea.visible = true
 
+# Used to help release focus for when you click off of a thing:
+func _on_settings_area_gui_input(event):
+	if (
+		(event is InputEventMouseButton) and
+		(event.button_index == MOUSE_BUTTON_LEFT) and
+		event.pressed
+	):
+		get_viewport().gui_release_focus()
+
+# !!! consider making a global function rather than this hacky duplicate?
+func set_input(action_name: String, state: bool):
+	var input_event = InputEventAction.new()
+	input_event.action = action_name
+	input_event.pressed = state
+	Input.parse_input_event(input_event)
+
 #### GENERAL SETTINGS ####
 
 # !!! remember to involve audio stuff later
@@ -49,8 +65,43 @@ func refresh_general_settings():
 	%CourtHeightEntry.value = Globals.court_size.y
 	%ApplyCourtSizeButton.disabled = true
 
-# !!! remember to make court size changes auto apply from the titlescreen,
-# !!! but require the button from gameplay.
+# !!! consider "using a debouncing timer to call the function less often"
+# !!! for repeatedly playing a volume-reference sound when audio volume is changed?
+func _audio_slider_value_changed(value: float, which: String):
+	match which:
+		"music":
+			Globals.music_volume = value
+		"sounds":
+			Globals.sounds_volume = value
+
+func _plr_cpu_mode_selected(index: int, is_plr2: bool):
+	if is_plr2:
+		Globals.plr2_cpu_mode = index
+	else:
+		Globals.plr1_cpu_mode = index
+
+func _plr_force_slow_toggled(bool_val: bool, is_plr2: bool):
+	if is_plr2:
+		Globals.plr2_force_slow = bool_val
+		set_input("plr2_slow", bool_val)
+	else:
+		Globals.plr1_force_slow = bool_val
+		set_input("plr1_slow", bool_val)
+
+func _court_size_entry_value_changed(value: float, is_height: bool):
+	print(value)
+	if get_tree().current_scene.name == "GameplayTopscene":
+		%ApplyCourtSizeButton.disabled = false
+	else:
+		if is_height:
+			Globals.court_size.y = int(value)
+		else:
+			Globals.court_size.x = int(value)
+func _on_apply_court_size_button_pressed():
+	Globals.court_size.x = int(%CourtWidthEntry.value)
+	Globals.court_size.y = int(%CourtHeightEntry.value)
+	Globals.reset_court_for_new_court_size = true
+	%ApplyCourtSizeButton.disabled = true
 
 #### KEYBINDS SETTINGS ####
 

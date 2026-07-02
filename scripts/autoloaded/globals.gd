@@ -34,6 +34,7 @@ var plr2_cpu_mode: int = CPU_MODES.OFF
 var plr2_force_slow: bool = false
 
 var court_size: Vector2i = Vector2i(1260, 648)
+var reset_court_for_new_court_size: bool = false
 
 #### ADVANCED SETTINGS:
 

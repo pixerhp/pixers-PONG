@@ -19,6 +19,10 @@ func _ready():
 	firstserve_start_time = Time.get_ticks_msec()
 
 func _process(delta: float):
+	if Globals.reset_court_for_new_court_size:
+		reset_court()
+		Globals.reset_court_for_new_court_size = false
+	
 	if %SettingsMenu.visible == true:
 		if Input.is_action_just_pressed("pause_escape"):
 			%SettingsMenu.visible = false
@@ -111,6 +115,17 @@ func reset_all_gameobjects():
 	reset_paddles()
 	reset_ball()
 	reset_balltrail()
+	reset_referee()
+	reset_arrow_pointers_and_line()
+
+func reset_court():
+	PAD_Y_TOPLIMIT = %LeftPaddle/%FrontBar.mesh.height / 2.0
+	PAD_Y_BOTTOMLIMIT = Globals.court_size.y - (%LeftPaddle/%FrontBar.mesh.height / 2.0)
+	BALL_Y_TOPLIMIT = %BallShapeCast.shape.radius
+	BALL_Y_BOTTOMLIMIT = Globals.court_size.y - %BallShapeCast.shape.radius
+	reset_framing()
+	reset_court_decorations()
+	reset_scores_visuals()
 	reset_referee()
 	reset_arrow_pointers_and_line()
 

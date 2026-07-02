@@ -84,6 +84,7 @@ theme_override_constants/margin_right = 10
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+scroll_hint_mode = 1
 
 [node name="GeneralSettingsArea" type="VBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" unique_id=1529588087]
 unique_name_in_owner = true
@@ -147,6 +148,7 @@ popup/item_2/id = 2
 
 [node name="Plr1ForceSlowTickbox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=118600039]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
 text = "Force slow?"
 
@@ -170,6 +172,7 @@ popup/item_2/id = 2
 
 [node name="Plr2ForceSlowTickbox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" unique_id=1559108674]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(200, -1)
 layout_mode = 2
 text = "Force slow?"
 
@@ -420,6 +423,7 @@ allow_lesser = true
 
 [node name="PreventBackhitsTickbox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=119489842]
 unique_name_in_owner = true
+custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 button_pressed = true
 text = "Force all paddle hits to return ball forwards?"
@@ -572,6 +576,17 @@ layout_mode = 2
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/GeneralTabButton" to="." method="_on_settings_tab_button_pressed" binds= ["General"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/KeybindsTabButton" to="." method="_on_settings_tab_button_pressed" binds= ["Keybinds"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/AdvancedTabButton" to="." method="_on_settings_tab_button_pressed" binds= ["Advanced"]]
+[connection signal="gui_input" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea" to="." method="_on_settings_area_gui_input"]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/MusicVolumeSlider" to="." method="_audio_slider_value_changed" binds= ["music"]]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/SoundsVolumeSlider" to="." method="_audio_slider_value_changed" binds= ["sounds"]]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/Plr1CPUDropdown" to="." method="_plr_cpu_mode_selected" binds= [false]]
+[connection signal="toggled" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/Plr1ForceSlowTickbox" to="." method="_plr_force_slow_toggled" binds= [false]]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/Plr2CPUDropdown" to="." method="_plr_cpu_mode_selected" binds= [true]]
+[connection signal="toggled" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/Plr2ForceSlowTickbox" to="." method="_plr_force_slow_toggled" binds= [true]]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/CourtWidthEntry" to="." method="_court_size_entry_value_changed" binds= [false]]
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/CourtHeightEntry" to="." method="_court_size_entry_value_changed" binds= [true]]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/GeneralSettingsArea/ApplyCourtSizeButton" to="." method="_on_apply_court_size_button_pressed"]
+[connection signal="gui_input" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea" to="." method="_on_settings_area_gui_input"]
 [connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1MoveUpItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_up"]]
 [connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1MoveDownItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_down"]]
 [connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr1BumpInItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr1_bump_right"]]
@@ -584,3 +599,4 @@ layout_mode = 2
 [connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/Plr2SlowItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["plr2_slow"]]
 [connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/PauseEscapeItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["pause_escape"]]
 [connection signal="item_clicked" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/KeybindsSettingsArea/FullscreenToggleItemList" to="." method="_on_keybinds_itemlist_clicked" binds= ["fullscreen_toggle"]]
+[connection signal="gui_input" from="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" to="." method="_on_settings_area_gui_input"]
