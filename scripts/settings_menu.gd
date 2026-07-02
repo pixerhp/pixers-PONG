@@ -133,4 +133,17 @@ func refresh_keybinds_settings(action_name: String = ""):
 #### ADVANCED
 
 func refresh_avdanced_settings():
-	pass
+	%BallMinSpeedEntry.value = Globals.ball_min_speed
+	%BallMaxSpeedEntry.value = Globals.ball_max_speed
+	%PadHitSpeedupEntry.value = Globals.ball_padhit_speedup
+	%PreventBackhitsTickbox.button_pressed = Globals.prevent_ball_backhits
+	%SidebumpDurationEntry.value = Globals.pad_sidebump_duration
+	%SidebumpStrengthEntry.value = Globals.pad_sidebump_strength
+	%PaddleKnockbackDurationEntry.value = Globals.pad_knockback_duration
+	%BallTrailDurationEntry.value = Globals.balltrail_duration
+	%FirstServeDurationEntry.value = Globals.firstserve_anim_duration
+	%WinlossDurationEntry.value = Globals.winloss_anim_duration
+	%FoulSuspicionDurationEntry.value = Globals.foulball_suspicion_anim_duration
+	%FoulNevermindDurationEntry.value = Globals.foulball_nevermind_anim_duration
+	%FoulReserveDurationEntry.value = Globals.foulball_reserve_anim_duration
+	%PostServeDurationEntry.value = Globals.postserve_anim_duration
