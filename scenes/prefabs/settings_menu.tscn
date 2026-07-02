@@ -364,28 +364,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=905113041]
+[node name="GameplayPhysicsCategoryLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=905113041]
 layout_mode = 2
 text = "GAMEPLAY PHYSICS"
 
-[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=2125195664]
+[node name="BallMinSpeedLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=899945838]
 layout_mode = 2
-text = "Maximum speed:"
+text = "Ball's minimum speed:"
 
-[node name="SpinBox" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1302238340]
-custom_maximum_size = Vector2(400, -1)
-layout_mode = 2
-min_value = 1.0
-max_value = 20000.0
-value = 4500.0
-rounded = true
-allow_greater = true
-
-[node name="Label4" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=899945838]
-layout_mode = 2
-text = "Minimum speed:"
-
-[node name="SpinBox2" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=61985365]
+[node name="BallMinSpeedEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=61985365]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 1.0
@@ -394,11 +381,24 @@ value = 300.0
 rounded = true
 allow_greater = true
 
-[node name="Label5" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1291887647]
+[node name="BallMaxSpeedLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=2125195664]
 layout_mode = 2
-text = "Paddle-hit speedup:"
+text = "Ball's maximum speed:"
 
-[node name="SpinBox3" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=298197305]
+[node name="BallMaxSpeedEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1302238340]
+custom_maximum_size = Vector2(400, -1)
+layout_mode = 2
+min_value = 1.0
+max_value = 20000.0
+value = 4500.0
+rounded = true
+allow_greater = true
+
+[node name="PadHitSpeedupLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1291887647]
+layout_mode = 2
+text = "Ball's paddle-hit speedup:"
+
+[node name="PadHitSpeedupEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=298197305]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 max_value = 4000.0
@@ -407,20 +407,20 @@ rounded = true
 allow_greater = true
 allow_lesser = true
 
-[node name="Label6" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=566171379]
+[node name="SidebumpDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=566171379]
 layout_mode = 2
-text = "Paddle bump duration (in milliseconds):"
+text = "Paddle side-bump duration (in milliseconds):"
 
-[node name="SpinBox4" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1440434870]
+[node name="SidebumpDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1440434870]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
 max_value = 9999999999.0
-value = 9999999999999.0
+value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="CheckBox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=119489842]
+[node name="PreventBackhitsTickbox" type="CheckBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=119489842]
 layout_mode = 2
 button_pressed = true
 text = "Force all paddle hits to return ball forwards?"
@@ -429,15 +429,15 @@ text = "Force all paddle hits to return ball forwards?"
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=2043392836]
+[node name="AnimationsCategoryLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=2043392836]
 layout_mode = 2
 text = "ANIMATIONS (in milliseconds)"
 
-[node name="Label7" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1914375412]
+[node name="PaddleKnockbackDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1914375412]
 layout_mode = 2
 text = "Paddle knockback duration:"
 
-[node name="SpinBox5" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1695852718]
+[node name="PaddleKnockbackDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1695852718]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
@@ -446,11 +446,11 @@ value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="Label8" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1871239293]
+[node name="FirstServeDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1871239293]
 layout_mode = 2
 text = "First-serve cutscene duration:"
 
-[node name="SpinBox6" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=496454872]
+[node name="FirstServeDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=496454872]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
@@ -459,11 +459,11 @@ value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="Label9" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1311349615]
+[node name="WinlossDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1311349615]
 layout_mode = 2
 text = "Win/loss cutscene duration:"
 
-[node name="SpinBox7" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1618541821]
+[node name="WinlossDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1618541821]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
@@ -472,11 +472,11 @@ value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="Label10" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1660925037]
+[node name="FoulSuspicionDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1660925037]
 layout_mode = 2
 text = "Foul ball suspicion cutscene duration:"
 
-[node name="SpinBox8" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1385082785]
+[node name="FoulSuspicionDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1385082785]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
@@ -485,11 +485,11 @@ value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="Label11" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=796386478]
+[node name="FoulNevermindDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=796386478]
 layout_mode = 2
 text = "Foul ball \"nevermind\" cutscene duration:"
 
-[node name="SpinBox9" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=460027831]
+[node name="FoulNevermindDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=460027831]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
@@ -498,11 +498,11 @@ value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="Label12" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=193352148]
+[node name="FoulReserveDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=193352148]
 layout_mode = 2
 text = "Foul ball reserve cutscene duration:"
 
-[node name="SpinBox10" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1872440148]
+[node name="FoulReserveDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=1872440148]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
@@ -511,11 +511,11 @@ value = 9999999999.0
 rounded = true
 allow_greater = true
 
-[node name="Label13" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=873745056]
+[node name="PostServeDurationLabel" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=873745056]
 layout_mode = 2
 text = "Post-serve cutscene duration:"
 
-[node name="SpinBox11" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=819962430]
+[node name="PostServeDurationEntry" type="SpinBox" parent="MarginContainer/PanelContainer/VBoxContainer/MarginContainer/ScrollContainer/AdvancedSettingsArea" unique_id=819962430]
 custom_maximum_size = Vector2(400, -1)
 layout_mode = 2
 min_value = 9999999999.0
