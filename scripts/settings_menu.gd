@@ -1,14 +1,12 @@
 extends Control
 
-#### UNIVERSAL:
+#### UNIVERSAL ####
 
 func _ready():
 	%ApplyCourtSizeButton.visible = (get_tree().current_scene.name == "GameplayTopscene")
-	# !!! remember to make field changes auto apply from the titlescreen
-	# !!! but require the button from gameplay.
 	refresh_general_settings()
 	refresh_keybinds_settings()
-	refresh_avdanced_settings()
+	refresh_advanced_settings()
 
 func _on_close_settings_button_pressed():
 	self.visible = false
@@ -31,7 +29,7 @@ func _on_settings_tab_button_pressed(tab_name: String):
 			%AdvancedTabButton.disabled = true
 			%AdvancedSettingsArea.visible = true
 
-#### GENERAL
+#### GENERAL SETTINGS ####
 
 # !!! remember to involve audio stuff later
 
@@ -51,7 +49,10 @@ func refresh_general_settings():
 	%CourtHeightEntry.value = Globals.court_size.y
 	%ApplyCourtSizeButton.disabled = true
 
-#### KEYBINDS
+# !!! remember to make court size changes auto apply from the titlescreen,
+# !!! but require the button from gameplay.
+
+#### KEYBINDS SETTINGS ####
 
 func _on_keybinds_itemlist_clicked(index, _at_position, mouse_button_index, action_name: String):
 	if not (mouse_button_index == MouseButton.MOUSE_BUTTON_LEFT):
@@ -130,9 +131,9 @@ func refresh_keybinds_settings(action_name: String = ""):
 	for input_event in InputMap.action_get_events(action_name):
 		itemlist_noderef.add_item("    "+input_event.as_text(), null, false)
 
-#### ADVANCED
+#### ADVANCED SETTINGS ####
 
-func refresh_avdanced_settings():
+func refresh_advanced_settings():
 	%BallMinSpeedEntry.value = Globals.ball_min_speed
 	%BallMaxSpeedEntry.value = Globals.ball_max_speed
 	%PadHitSpeedupEntry.value = Globals.ball_padhit_speedup
