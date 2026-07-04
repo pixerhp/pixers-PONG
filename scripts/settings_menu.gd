@@ -113,15 +113,10 @@ func _on_keybinds_itemlist_clicked(index, _at_position, mouse_button_index, acti
 	if index == 0:
 		keybinds_initiate_add(action_name)
 	else:
-		keybinds_initiate_remove(action_name, index)
+		InputMap.action_erase_event(action_name, InputMap.action_get_events(action_name)[index-1])
+		refresh_keybinds_settings(action_name)
 
 func keybinds_initiate_add(action_name: String):
-	var itemlist_ref: ItemList = keybinds_itemlist_from_action(action_name)
-	
-	
-	pass
-
-func keybinds_initiate_remove(action_name: String, index: int):
 	var itemlist_ref: ItemList = keybinds_itemlist_from_action(action_name)
 	
 	
