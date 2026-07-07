@@ -152,7 +152,7 @@ func keybinds_itemlist_from_action(action_name: String) -> ItemList:
 			return null
 
 func refresh_keybinds_settings(action_name: String = ""):
-	if action_name == "":
+	if action_name.is_empty():
 		refresh_keybinds_settings("plr1_up")
 		refresh_keybinds_settings("plr1_down")
 		refresh_keybinds_settings("plr1_bump_left")
@@ -194,3 +194,50 @@ func refresh_advanced_settings():
 	%FoulNevermindDurationEntry.value = Globals.foulball_nevermind_anim_duration
 	%FoulReserveDurationEntry.value = Globals.foulball_reserve_anim_duration
 	%PostServeDurationEntry.value = Globals.postserve_anim_duration
+
+func _prevent_ball_backhits_toggled(bool_val: bool):
+	Globals.prevent_ball_backhits = bool_val
+
+func _advanced_entry_value_changed(value: float, var_name: String):
+	match var_name:
+		"ball_min_speed":
+			Globals.ball_min_speed = value
+			%BallMinSpeedEntry.value = Globals.ball_min_speed
+		"ball_max_speed":
+			Globals.ball_max_speed = value
+			%BallMaxSpeedEntry.value = Globals.ball_max_speed
+		"ball_padhit_speedup":
+			Globals.ball_padhit_speedup = value
+			%PadHitSpeedupEntry.value = Globals.ball_padhit_speedup
+		"pad_sidebump_duration":
+			Globals.pad_sidebump_duration = int(value)
+			%SidebumpDurationEntry.value = Globals.pad_sidebump_duration
+		"pad_sidebump_strength":
+			Globals.pad_sidebump_strength = value
+			%SidebumpStrengthEntry.value = Globals.pad_sidebump_strength
+		"pad_knockback_duration":
+			Globals.pad_knockback_duration = int(value)
+			%PaddleKnockbackDurationEntry.value = Globals.pad_knockback_duration
+		"balltrail_duration":
+			Globals.balltrail_duration = int(value)
+			%BallTrailDurationEntry.value = Globals.balltrail_duration
+		"firstserve_anim_duration":
+			Globals.firstserve_anim_duration = int(value)
+			%FirstServeDurationEntry.value = Globals.firstserve_anim_duration
+		"winloss_anim_duration":
+			Globals.winloss_anim_duration = int(value)
+			%WinlossDurationEntry.value = Globals.winloss_anim_duration
+		"foulball_suspicion_anim_duration":
+			Globals.foulball_suspicion_anim_duration = int(value)
+			%FoulSuspicionDurationEntry.value = Globals.foulball_suspicion_anim_duration
+		"foulball_nevermind_anim_duration":
+			Globals.foulball_nevermind_anim_duration = int(value)
+			%FoulNevermindDurationEntry.value = Globals.foulball_nevermind_anim_duration
+		"foulball_reserve_anim_duration":
+			Globals.foulball_reserve_anim_duration = int(value)
+			%FoulReserveDurationEntry.value = Globals.foulball_reserve_anim_duration
+		"postserve_anim_duration":
+			Globals.postserve_anim_duration = int(value)
+			%PostServeDurationEntry.value = Globals.postserve_anim_duration
+		_:
+			push_error("Unhandled var_name parameter: ", var_name)

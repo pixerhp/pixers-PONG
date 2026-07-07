@@ -716,7 +716,7 @@ func postserve_anim_conclusion():
 ################################################################
 
 func random_serve_velocity() -> Vector2:
-	return Vector2(250.0*(((randi()%2)*2)-1), 0.0).rotated(deg_to_rad(randf_range(-22.5, 22.5)))
+	return Vector2(max(Globals.ball_min_speed, 50.0)*(((randi()%2)*2)-1), 0.0).rotated(deg_to_rad(randf_range(-22.5, 22.5)))
 
 var RANDOM_MOVEMENT_SEED_OFFSET: int = randi()
 var total_paused_time: int = 0
