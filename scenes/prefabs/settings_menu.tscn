@@ -572,6 +572,33 @@ allow_greater = true
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
+[node name="ListeningForInputRect" type="ColorRect" parent="." unique_id=452738351]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2, 0.2, 0.2, 0.8862745)
+
+[node name="ListeningForInputLabel" type="Label" parent="ListeningForInputRect" unique_id=733818262]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 22
+text = "(Listening for input...)"
+
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/CloseSettingsButton" to="." method="_on_close_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/GeneralTabButton" to="." method="_on_settings_tab_button_pressed" binds= ["General"]]
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/PanelContainer/HBoxContainer/KeybindsTabButton" to="." method="_on_settings_tab_button_pressed" binds= ["Keybinds"]]
