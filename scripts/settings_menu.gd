@@ -7,6 +7,7 @@ func _ready():
 	refresh_general_settings()
 	refresh_keybinds_settings()
 	refresh_advanced_settings()
+	_on_settings_tab_button_pressed("General")
 
 func _on_close_settings_button_pressed():
 	self.visible = false
