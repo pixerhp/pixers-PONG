@@ -11,6 +11,7 @@ func _ready():
 
 func _on_close_settings_button_pressed():
 	self.visible = false
+	Globals.listening_for_input = false
 
 func _on_settings_tab_button_pressed(tab_name: String):
 	%GeneralTabButton.disabled = false
@@ -120,6 +121,8 @@ func _on_keybinds_itemlist_clicked(index, _at_position, mouse_button_index, acti
 func keybinds_initiate_add(action_name: String):
 	var itemlist_ref: ItemList = keybinds_itemlist_from_action(action_name)
 	
+	Globals.listening_for_input = true
+	%ListeningForInputRect.visible = true
 	
 	pass
 

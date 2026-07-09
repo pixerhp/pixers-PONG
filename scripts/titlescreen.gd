@@ -4,7 +4,11 @@ func _ready():
 	reset_framing(Vector2i(800, 600))
 
 func _process(_delta: float):
-	if Input.is_action_just_pressed("pause_escape") and (%SettingsMenu.visible == true):
+	if (
+		(not Globals.listening_for_input) and 
+		Input.is_action_just_pressed("pause_escape") and 
+		%SettingsMenu.visible
+	):
 		%SettingsMenu.visible = false
 
 func reset_framing(content_size: Vector2i):

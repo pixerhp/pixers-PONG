@@ -24,7 +24,7 @@ func _process(delta: float):
 		Globals.reset_court_for_new_court_size = false
 	
 	if %SettingsMenu.visible == true:
-		if Input.is_action_just_pressed("pause_escape"):
+		if (not Globals.listening_for_input) and Input.is_action_just_pressed("pause_escape"):
 			%SettingsMenu.visible = false
 	else:
 		checkdo_toggle_pause()
