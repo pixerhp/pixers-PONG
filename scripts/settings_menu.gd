@@ -118,13 +118,28 @@ func _on_keybinds_itemlist_clicked(index, _at_position, mouse_button_index, acti
 		InputMap.action_erase_event(action_name, InputMap.action_get_events(action_name)[index-1])
 		refresh_keybinds_settings(action_name)
 
+var _keybinds_action_to_add_to: String = ""
 func keybinds_initiate_add(action_name: String):
-	var itemlist_ref: ItemList = keybinds_itemlist_from_action(action_name)
-	
+	_keybinds_action_to_add_to = action_name
 	Globals.listening_for_input = true
 	%ListeningForInputRect.visible = true
+
+func _input(event: InputEvent) -> void:
+	if Globals.listening_for_input == false:
+		return
+	if not (
+		(event is InputEventKey) or 
+		((event is InputEventMouseButton) and event.pressed) or 
+		(event is InputEventJoypadButton) or 
+		(event is InputEventJoypadMotion)
+	):
+		return
 	
-	pass
+	InputMap.action_add_event(_keybinds_action_to_add_to, event)
+	
+	Globals.listening_for_input = false
+	%ListeningForInputRect.hide()
+	refresh_keybinds_settings(_keybinds_action_to_add_to)
 
 func keybinds_itemlist_from_action(action_name: String) -> ItemList:
 	match action_name:
