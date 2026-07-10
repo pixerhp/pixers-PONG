@@ -1,13 +1,16 @@
 extends Control
 
-#### UNIVERSAL ####
-
 func _ready():
 	%ApplyCourtSizeButton.visible = (get_tree().current_scene.name == "GameplayTopscene")
 	refresh_general_settings()
 	refresh_keybinds_settings()
 	refresh_advanced_settings()
 	_on_settings_tab_button_pressed("General")
+
+func _process(_delta):
+	# Intentional 1 frame delay, to avoid a possible 'pause_escape' action from closing settings.
+	if (Globals.listening_for_input and not %ListeningForInputRect.visible):
+		Globals.listening_for_input = false
 
 func _on_close_settings_button_pressed():
 	self.visible = false
@@ -137,9 +140,8 @@ func _input(event: InputEvent) -> void:
 	
 	InputMap.action_add_event(_keybinds_action_to_add_to, event)
 	
-	Globals.listening_for_input = false
-	%ListeningForInputRect.hide()
 	refresh_keybinds_settings(_keybinds_action_to_add_to)
+	%ListeningForInputRect.hide()
 
 func keybinds_itemlist_from_action(action_name: String) -> ItemList:
 	match action_name:
