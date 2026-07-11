@@ -69,4 +69,4 @@ func _on_ts_area_input_event(_viewport, event, _shape_idx, which: String):
 			"settings":
 				%SettingsMenu.visible = true
 			"bonus":
-				pass
+				get_tree().change_scene_to_file("res://scenes/topscenes/bonus_topscene.tscn")

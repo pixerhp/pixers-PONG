@@ -20,6 +20,8 @@ script = ExtResource("1_lfq86")
 
 [node name="CenteringParent" type="Control" parent="." unique_id=75234928]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(800, 600)
+custom_maximum_size = Vector2(800, 600)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
