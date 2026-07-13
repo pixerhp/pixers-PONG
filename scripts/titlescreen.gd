@@ -3,14 +3,6 @@ extends Node
 func _ready():
 	reset_framing(Vector2i(800, 600))
 
-func _process(_delta: float):
-	if (
-		(not Globals.listening_for_input) and 
-		Input.is_action_just_pressed("pause_escape") and 
-		%SettingsMenu.visible
-	):
-		%SettingsMenu.visible = false
-
 func reset_framing(content_size: Vector2i):
 	get_window().set_content_scale_size(content_size)
 	%CenteringParent.set_size(content_size)
@@ -18,6 +10,14 @@ func reset_framing(content_size: Vector2i):
 		(get_viewport().get_visible_rect().size / 2.0) - (content_size / 2.0))
 	%ClippingParent.set_size(content_size)
 	%ClippingParent.set_position(Vector2(0,0))
+
+func _process(_delta: float):
+	if (
+		(not Globals.listening_for_input) and 
+		Input.is_action_just_pressed("pause_escape") and 
+		%SettingsMenu.visible
+	):
+		%SettingsMenu.visible = false
 
 
 func _on_play_button_pressed():

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bua58fsay7gxl"]
 
 [ext_resource type="Script" uid="uid://fsgd8copevej" path="res://scripts/bonus_area.gd" id="1_vypj0"]
+[ext_resource type="Texture2D" uid="uid://dhsc1gvgbgl4t" path="res://assets/art/bonus_artwork.png" id="2_mqykk"]
 
 [node name="BonusTopscene" type="Control" unique_id=1380357261]
 layout_mode = 3
@@ -11,29 +12,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vypj0")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1066401531]
+[node name="OuterDarknessColorRect" type="ColorRect" parent="." unique_id=1066401531]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.52, 0, 0, 1)
+color = Color(0, 0, 0, 0.49803922)
 
 [node name="CenteringParent" type="Control" parent="." unique_id=208322643]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(800, 600)
-custom_maximum_size = Vector2(800, 600)
+custom_minimum_size = Vector2(2048, 1536)
+custom_maximum_size = Vector2(2048, 1536)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -400.0
-offset_top = -300.0
-offset_right = 400.0
-offset_bottom = 300.0
+offset_left = -1024.0
+offset_top = -768.0
+offset_right = 1024.0
+offset_bottom = 768.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -49,11 +50,56 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="ColorRect2" type="ColorRect" parent="CenteringParent/ClippingParent" unique_id=2525962]
+[node name="BackgroundColorRect" type="ColorRect" parent="CenteringParent/ClippingParent" unique_id=2525962]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.2701, 0.5383751, 0.73, 1)
+color = Color(0.05882353, 0.06666667, 0.07058824, 1)
+
+[node name="BonusAreaTitleLabel" type="Label" parent="CenteringParent/ClippingParent" unique_id=931703822]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -403.5
+offset_right = 403.5
+offset_bottom = 175.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 128
+text = "BONUS AREA"
+
+[node name="ExitButtonOriginParent" type="Control" parent="CenteringParent/ClippingParent" unique_id=255929042]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ExitButton" type="Button" parent="CenteringParent/ClippingParent/ExitButtonOriginParent" unique_id=344495452]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 32.0
+offset_right = 234.0
+offset_bottom = 128.0
+theme_override_font_sizes/font_size = 64
+text = "< [Exit]"
+
+[node name="BonusArtworkOriginParent" type="Control" parent="CenteringParent/ClippingParent" unique_id=1405014202]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="BonusArtwork" type="Sprite2D" parent="CenteringParent/ClippingParent/BonusArtworkOriginParent" unique_id=76244437]
+position = Vector2(-496, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_mqykk")
