@@ -43,7 +43,7 @@ func _on_settings_area_gui_input(event):
 	):
 		get_viewport().gui_release_focus()
 
-# !!! consider making a global function rather than this hacky duplicate?
+# NOTE consider making a global function rather than this hacky duplicate?
 func set_input(action_name: String, state: bool):
 	var input_event = InputEventAction.new()
 	input_event.action = action_name
@@ -52,7 +52,7 @@ func set_input(action_name: String, state: bool):
 
 #### GENERAL SETTINGS ####
 
-# !!! remember to involve audio stuff later
+# NOTE remember to involve audio stuff later
 
 func refresh_general_settings():
 	%MusicVolumeSlider.value = Globals.music_volume
@@ -70,8 +70,8 @@ func refresh_general_settings():
 	%CourtHeightEntry.value = Globals.court_size.y
 	%ApplyCourtSizeButton.disabled = true
 
-# !!! consider "using a debouncing timer to call the function less often"
-# !!! for repeatedly playing a volume-reference sound when audio volume is changed?
+# NOTE consider "using a debouncing timer to call the function less often"
+# NOTE for repeatedly playing a volume-reference sound when audio volume is changed?
 func _audio_slider_value_changed(value: float, which: String):
 	match which:
 		"music":
