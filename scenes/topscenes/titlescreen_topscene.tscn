@@ -58,14 +58,20 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7nafq")
 
-[node name="TSPixerHPArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1451439561]
+[node name="TSPixerArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1451439561]
 unique_name_in_owner = true
 
-[node name="TSpixersArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1729819490]
+[node name="CollisionPolygon2D1" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture/TSPixerArea" unique_id=171878543]
+polygon = PackedVector2Array(360, 209, 358, 190, 347, 166, 339, 158, 321, 151, 301, 157, 293, 161, 281, 173, 270, 178, 264, 175, 254, 156, 234, 143, 210, 143, 182, 155, 179, 164, 176, 158, 182, 131, 189, 100, 198, 86, 223, 74, 252, 51, 283, 45, 315, 54, 332, 67, 348, 88, 364, 101, 373, 117, 375, 128, 370, 161, 366, 177, 364, 201)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture/TSPixerArea" unique_id=1556018791]
+polygon = PackedVector2Array(124, 408, 146, 403, 195, 388, 254, 374, 294, 366, 344, 361, 372, 361, 376, 355, 375, 342, 370, 324, 369, 287, 364, 240, 360, 225, 357, 221, 351, 237, 345, 247, 331, 252, 319, 254, 295, 251, 269, 230, 261, 228, 250, 234, 229, 244, 209, 246, 193, 241, 174, 217, 168, 219, 165, 227, 161, 248, 151, 267, 144, 291, 146, 307, 157, 316, 160, 334, 154, 346, 140, 358, 125, 384, 121, 400)
+
+[node name="TSTitleArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1729819490]
 unique_name_in_owner = true
 
-[node name="TSPONGArea" type="Area2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture" unique_id=1389691498]
-unique_name_in_owner = true
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CenteringParent/ClippingParent/TSBackgroundTexture/TSTitleArea" unique_id=1489585953]
+polygon = PackedVector2Array(193, 585, 138, 584, 92, 572, 69, 548, 55, 503, 63, 460, 86, 434, 117, 413, 179, 395, 270, 372, 342, 364, 391, 366, 455, 379, 490, 392, 517, 416, 530, 462, 526, 492, 496, 513, 407, 538, 318, 560, 240, 577)
 
 [node name="TSGlassesTexture" type="TextureRect" parent="CenteringParent/ClippingParent" unique_id=242164406]
 unique_name_in_owner = true
@@ -158,6 +164,8 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 1
 
+[connection signal="input_event" from="CenteringParent/ClippingParent/TSBackgroundTexture/TSPixerArea" to="." method="_on_ts_area_input_event" binds= ["pixer"]]
+[connection signal="input_event" from="CenteringParent/ClippingParent/TSBackgroundTexture/TSTitleArea" to="." method="_on_ts_area_input_event" binds= ["title"]]
 [connection signal="input_event" from="CenteringParent/ClippingParent/TSGlassesTexture/TSGlassesArea" to="." method="_on_ts_area_input_event" binds= ["glasses"]]
 [connection signal="mouse_entered" from="CenteringParent/ClippingParent/TSGlassesTexture/TSGlassesArea" to="." method="_on_ts_area_entered" binds= ["glasses"]]
 [connection signal="mouse_exited" from="CenteringParent/ClippingParent/TSGlassesTexture/TSGlassesArea" to="." method="_on_ts_area_exited" binds= ["glasses"]]

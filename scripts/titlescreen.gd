@@ -66,11 +66,15 @@ func _on_ts_area_exited(which: String):
 func _on_ts_area_input_event(_viewport, event, _shape_idx, which: String):
 	if (event is InputEventMouseButton) and (event.button_index == MouseButton.MOUSE_BUTTON_LEFT) and event.pressed:
 		match which:
+			"pixer":
+				print("[[[[ PIXER, NOT YET IMPLEMENTED! ]]]]")
+			"title":
+				print("[[[[ PIXER'S PONG TITLE, NOT YET IMPLEMENTED! ]]]]")
 			"exit":
 				get_tree().quit()
 			"glasses":
 				# TODO
-				print("[[[[ CREDITS NOT YET IMPLEMENTED! ]]]]")
+				print("[[[[ CREDITS, NOT YET IMPLEMENTED! ]]]]")
 			"play":
 				get_tree().change_scene_to_file("res://scenes/topscenes/gameplay_topscene.tscn")
 			"settings":
