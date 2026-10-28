@@ -38,6 +38,8 @@ func _on_ts_area_entered(which: String):
 	match which:
 		"exit":
 			node_ref = %TSExitTexture
+		"glasses":
+			node_ref = %TSGlassesTexture
 		"play":
 			node_ref = %TSPlayTexture
 		"settings":
@@ -51,6 +53,8 @@ func _on_ts_area_exited(which: String):
 	match which:
 		"exit":
 			node_ref = %TSExitTexture
+		"glasses":
+			node_ref = %TSGlassesTexture
 		"play":
 			node_ref = %TSPlayTexture
 		"settings":
@@ -64,6 +68,9 @@ func _on_ts_area_input_event(_viewport, event, _shape_idx, which: String):
 		match which:
 			"exit":
 				get_tree().quit()
+			"glasses":
+				# TODO
+				print("[[[[ CREDITS NOT YET IMPLEMENTED! ]]]]")
 			"play":
 				get_tree().change_scene_to_file("res://scenes/topscenes/gameplay_topscene.tscn")
 			"settings":
