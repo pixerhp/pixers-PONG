@@ -13,4 +13,7 @@ func reset_framing(content_size: Vector2i):
 
 func _process(_delta):
 	if Input.is_action_just_pressed("pause_escape"):
-		get_tree().change_scene_to_file("res://scenes/topscenes/titlescreen_topscene.tscn")
+		exit_bonus_screen()
+
+func exit_bonus_screen():
+	get_tree().change_scene_to_file("res://scenes/topscenes/titlescreen_topscene.tscn")
